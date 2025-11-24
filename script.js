@@ -34,7 +34,7 @@ function calculateSchedule() {
         return;
     }
     if (isNaN(termPeriods) || termPeriods <= 0) {
-        alert("Please enter a valid loan/lease term in periods."); // Alert text updated
+        alert("Please enter a valid lease/loan term in periods."); // Alert text updated
         termInput.focus();
         return;
     }
