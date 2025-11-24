@@ -23,52 +23,52 @@ function calculateSchedule() {
     const timingInput = document.getElementById('timing');
 
     const payment = parseFloat(paymentInput.value);
-    const termMonths = parseInt(termInput.value);
+    const termPeriods = parseInt(termInput.value); // Renamed from termMonths
     const rateAnnual = parseFloat(rateInput.value);
     const timing = timingInput.value;
 
     // 2. Validation with visual feedback
     if (isNaN(payment) || payment <= 0) {
-        alert("Please enter a valid monthly payment amount.");
+        alert("Please enter a valid periodic payment amount."); // Alert text updated
         paymentInput.focus();
         return;
     }
-    if (isNaN(termMonths) || termMonths <= 0) {
-        alert("Please enter a valid lease term in months.");
+    if (isNaN(termPeriods) || termPeriods <= 0) {
+        alert("Please enter a valid loan/lease term in periods."); // Alert text updated
         termInput.focus();
         return;
     }
     if (isNaN(rateAnnual) || rateAnnual < 0) {
-        alert("Please enter a valid discount rate.");
+        alert("Please enter a valid annual interest rate."); // Alert text updated
         rateInput.focus();
         return;
     }
 
     // 3. Core Calculation Logic
-    const rateMonthly = (rateAnnual / 100) / 12;
-    let liability = 0;
+    const ratePeriodic = (rateAnnual / 100) / 12; // Renamed from rateMonthly
+    let presentValue = 0; // Renamed from liability
 
-    // Present Value Calculation
-    if (rateMonthly === 0) {
-        liability = payment * termMonths;
+    // Present Value Calculation (Standard Annuity Formula)
+    if (ratePeriodic === 0) {
+        presentValue = payment * termPeriods;
     } else {
         // PV of Annuity formula
-        liability = payment * ( (1 - Math.pow(1 + rateMonthly, -termMonths)) / rateMonthly );
+        presentValue = payment * ( (1 - Math.pow(1 + ratePeriodic, -termPeriods)) / ratePeriodic );
         
         // Adjustment for Annuity Due (Payment at start)
         if (timing === 'start') {
-            liability = liability * (1 + rateMonthly);
+            presentValue = presentValue * (1 + ratePeriodic);
         }
     }
 
-    const rouAsset = liability;
-    // Straight-line depreciation
-    const monthlyDepreciation = rouAsset / termMonths;
+    const initialAssetValue = presentValue; // Renamed from rouAsset
+    // Straight-line Amortization/Depreciation
+    const periodicAmortization = initialAssetValue / termPeriods; // Renamed from monthlyDepreciation
 
     // 4. Render Summary Metrics
-    animateValue(document.getElementById('sum-liability'), liability);
-    animateValue(document.getElementById('sum-asset'), rouAsset);
-    animateValue(document.getElementById('sum-dep'), monthlyDepreciation);
+    animateValue(document.getElementById('sum-liability'), presentValue);
+    animateValue(document.getElementById('sum-asset'), initialAssetValue);
+    animateValue(document.getElementById('sum-dep'), periodicAmortization);
     
     document.getElementById('summary-panel').classList.remove('hidden');
 
@@ -77,37 +77,29 @@ function calculateSchedule() {
     tbody.innerHTML = "";
     scheduleData = []; // Reset global data
     
-    // Add Header row to CSV data
-    scheduleData.push(["Period", "Opening Balance", "Payment", "Interest Expense", "Closing Balance", "Depreciation"]);
+    // Add Header row to CSV data - Updated column name
+    scheduleData.push(["Period", "Opening Balance", "Payment", "Interest Expense", "Closing Balance", "Amortization/Depreciation"]);
 
-    let openingBalance = liability;
+    let openingBalance = presentValue;
 
-    for (let i = 1; i <= termMonths; i++) {
+    for (let i = 1; i <= termPeriods; i++) {
         let interestExpense = 0;
         let closingBalance = 0;
         let currentPayment = payment;
 
         if (timing === 'end') {
-            // Arrears: Interest on opening balance, then deduct payment
-            interestExpense = openingBalance * rateMonthly;
+            // Ordinary Annuity (Arrears): Interest on opening balance, then deduct payment
+            interestExpense = openingBalance * ratePeriodic;
             closingBalance = openingBalance + interestExpense - currentPayment;
         } else {
-            // Advance: Deduct payment first, then interest on remainder
-            // Note: For the very first payment in 'start' mode, interest is usually 0 on that specific day if paid immediately, 
-            // but standard schedules often accrue interest on the balance remaining during the period.
-            // Standard IFRS 16 schedules for Advance usually effectively reduce principal immediately.
-            
-            // Calculation: Interest is accrued on the balance *outstanding during the period*.
-            // Since payment is made at start, outstanding balance is (Opening - Payment).
-            interestExpense = (openingBalance - currentPayment) * rateMonthly;
+            // Annuity Due (Advance): Deduct payment first, then interest on remainder
+            interestExpense = (openingBalance - currentPayment) * ratePeriodic;
             closingBalance = (openingBalance - currentPayment) + interestExpense;
         }
 
-        // Clean up tiny floating point errors at end of lease
-        if (i === termMonths && Math.abs(closingBalance) < 1.0) {
+        // Clean up tiny floating point errors at end of lease/loan
+        if (i === termPeriods && Math.abs(closingBalance) < 1.0) {
             closingBalance = 0;
-            // Adjust interest slightly to force balance to 0 if needed (common in banking)
-            // or just force close. Here we force close.
         }
 
         const row = `
@@ -117,7 +109,7 @@ function calculateSchedule() {
                 <td>${formatMoney(currentPayment)}</td>
                 <td class="highlight-col">${formatMoney(interestExpense)}</td>
                 <td>${formatMoney(closingBalance)}</td>
-                <td>${formatMoney(monthlyDepreciation)}</td>
+                <td>${formatMoney(periodicAmortization)}</td>
             </tr>
         `;
         tbody.innerHTML += row;
@@ -129,7 +121,7 @@ function calculateSchedule() {
             currentPayment.toFixed(2),
             interestExpense.toFixed(2),
             closingBalance.toFixed(2),
-            monthlyDepreciation.toFixed(2)
+            periodicAmortization.toFixed(2)
         ]);
 
         openingBalance = closingBalance;
@@ -140,8 +132,6 @@ function calculateSchedule() {
     resultsSection.classList.remove('hidden');
     
     // Reset the download gate if it was previously unlocked, or keep unlocked?
-    // Strategically: Keep it locked on re-calculate to capture new intent, or keep unlocked for better UX.
-    // Let's keep the logic simple: if the button is visible, keep it.
     if(document.getElementById('downloadBtn').classList.contains('hidden')) {
         document.getElementById('gate-container').classList.remove('hidden');
     }
@@ -196,7 +186,7 @@ function exportToCSV() {
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "IFRS16_Schedule.csv");
+    link.setAttribute("download", "Lease_Amortization_Schedule.csv"); // Filename updated
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
