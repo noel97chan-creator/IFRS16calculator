@@ -3,34 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IFRS 16 Lease Calculator | Professional Edition | Free Export</title>
-    <meta name="description" content="Calculate IFRS 16 lease liability, ROU asset, interest expense, and depreciation for audit readiness. Supports payments in advance and arrears.">
     
+    <title>Free IFRS 16 Lease Liability Calculator | Export to Excel | 2024 Update</title>
+    <meta name="description" content="Instantly calculate IFRS 16 lease liability, ROU asset amortization, and interest expense. Generate audit-ready schedules with our free online tool. Export to CSV.">
+    <meta name="keywords" content="IFRS 16 calculator, lease liability amortization schedule, ROU asset calculator, incremental borrowing rate tool, lease accounting excel export">
+    <meta name="author" content="IFRS16Pro">
+    <link rel="canonical" href="https://yourdomain.com/" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:title" content="IFRS 16 Lease Calculator | Professional Edition">
+    <meta property="og:description" content="Generate audit-ready IFRS 16 amortization schedules in seconds. Free export to Excel.">
+    <meta property="og:image" content="https://yourdomain.com/assets/social-share.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="IFRS 16 Lease Calculator | Professional Edition">
+    <meta property="twitter:description" content="Generate audit-ready IFRS 16 amortization schedules in seconds. Free export to Excel.">
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3291734589203338"
-         crossorigin="anonymous"></script>
+     crossorigin="anonymous"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "IFRS 16 Lease Calculator Pro",
+      "operatingSystem": "Web",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "A professional-grade calculator for IFRS 16 lease accounting compliance, featuring amortization schedules and CSV export."
+    }
+    </script>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo"><i class="fa-solid fa-calculator"></i> IFRS16<span>Pro</span></div>
-            <div class="nav-links">Free Tool for Accountants</div>
+            <div class="nav-links">
+                <a href="#calculator">Calculator</a>
+                <a href="#guide">Guide</a>
+                <a href="#faq">FAQ</a>
+            </div>
         </div>
     </nav>
 
     <main class="main-wrapper">
         
-        <div class="ad-banner">
-            <span class="ad-badge">Advertisement</span>
-            <div class="ad-content">[ Google AdSense Leaderboard 728x90 ]</div>
-        </div>
+        <h1 class="page-title">IFRS 16 Lease Liability Amortization Calculator</h1>
+        <p class="page-subtitle">Generate compliant journal entries and amortization schedules in seconds.</p>
 
-        <section class="dashboard-grid">
+        <section id="calculator" class="dashboard-grid">
             
             <div class="card input-card">
                 <div class="card-header">
@@ -39,7 +70,7 @@
                 
                 <div class="form-grid">
                     <div class="input-group">
-                        <label for="payment">Monthly Payment</label>
+                        <label for="payment">Monthly Payment Amount</label>
                         <div class="input-wrapper">
                             <span class="currency-symbol">$</span>
                             <input type="number" id="payment" placeholder="5000" aria-label="Monthly Payment Amount">
@@ -60,6 +91,7 @@
                             <span class="icon-symbol">%</span>
                             <input type="number" id="rate" placeholder="4.5" step="0.01" aria-label="Annual Discount Rate">
                         </div>
+                        <small class="input-hint">Use the annual rate implicit in the lease or your IBR.</small>
                     </div>
 
                     <div class="input-group">
@@ -97,26 +129,24 @@
                         <h3 id="sum-dep">$0.00</h3>
                     </div>
                 </div>
-                
-                <div class="ad-square">
-                    <span>[ AdSense Square 300x250 ]</span>
-                </div>
             </div>
         </section>
 
         <section id="results-section" class="card results-card hidden">
-            
             <div class="results-header">
                 <h2>Amortization Schedule</h2>
                 
-<div id="gate-container" class="gate-container">
-    <form id="emailForm" action="https://formspree.io/f/xqajgony" method="POST" class="gate-form">
-        <input type="email" name="email" id="userEmail" placeholder="Enter email to unlock Excel..." required>
-        <button type="submit" class="btn-unlock">
-            <i class="fa-solid fa-lock-open"></i> Unlock
-        </button>
-    </form>
-</div>
+                <div id="gate-container" class="gate-container">
+                    <form id="emailForm" action="https://formspree.io/f/xqajgony" method="POST" class="gate-form">
+                        <div class="input-wrapper-small">
+                            <input type="email" name="email" id="userEmail" placeholder="Enter email to unlock Excel..." required>
+                        </div>
+                        <button type="submit" class="btn-unlock">
+                            <i class="fa-solid fa-lock-open"></i> Unlock CSV
+                        </button>
+                    </form>
+                    <p class="privacy-micro">We respect your privacy. No spam.</p>
+                </div>
 
                 <button id="downloadBtn" class="btn-excel hidden">
                     <i class="fa-solid fa-file-csv"></i> Download CSV
@@ -141,79 +171,80 @@
             </div>
         </section>
         
-        <section class="card content-card">
-            <h2>The Essential Guide to IFRS 16 Lease Accounting</h2>
-            
-            <p>The transition from IAS 17 to **IFRS 16 Leases** fundamentally changed how companies recognize and report lease agreements. Prior to 2019, most operating leases were kept off-balance sheet, masking true financial obligations. IFRS 16 eliminated this distinction for lessees, requiring nearly all leases to be capitalized.</p>
+        <section id="guide" class="card content-card">
+            <article>
+                <h2>The Essential Guide to IFRS 16 Lease Accounting</h2>
+                
+                <p>The transition from IAS 17 to <strong>IFRS 16 Leases</strong> fundamentally changed how companies recognize and report lease agreements. Prior to 2019, operating leases were often "off-balance sheet." IFRS 16 eliminated this, requiring lessees to capitalize nearly all leases.</p>
 
-            <p>Our free calculator tool handles the core requirements of IFRS 16 for lessees, providing the full **Amortization Schedule** necessary for journal entries and financial disclosure. Understanding the three main components—**Lease Liability**, the **Right-of-Use (ROU) Asset**, and the **Discount Rate**—is crucial for compliance.</p>
+                <p>This <strong>Free IFRS 16 Calculator</strong> simplifies the compliance process by generating the three critical components for your balance sheet:</p>
+                
+                <div class="feature-list">
+                    <ul>
+                        <li><strong>Lease Liability:</strong> The present value of future lease payments.</li>
+                        <li><strong>Right-of-Use (ROU) Asset:</strong> The asset representing your right to use the leased item.</li>
+                        <li><strong>Interest & Depreciation:</strong> The expense recognition split required for the P&L.</li>
+                    </ul>
+                </div>
 
-            <hr>
+                <hr>
 
-            <h3>1. Key IFRS 16 Components Explained</h3>
-            
-            <p>Under IFRS 16, a single accounting model is applied to almost all leases. The lease is treated as the purchase of a **Right-of-Use Asset** and the simultaneous assumption of a **Lease Liability** for the obligation to make future payments.</p>
+                <h3>How to Use This Calculator</h3>
+                <ol>
+                    <li><strong>Enter Payment:</strong> Input the fixed monthly payment amount.</li>
+                    <li><strong>Define Term:</strong> Enter the lease duration in months (e.g., 3 years = 36 months).</li>
+                    <li><strong>Set Rate:</strong> Use your Incremental Borrowing Rate (IBR) or the rate implicit in the lease.</li>
+                    <li><strong>Select Timing:</strong> Choose "Advance" if you pay on the 1st of the month, or "Arrears" if you pay at the end.</li>
+                </ol>
 
-            <ul>
-                <li>**Lease Liability:** This is the initial measurement of the future minimum lease payments, discounted to the present value using the appropriate discount rate. As payments are made, the liability is reduced, and **Interest Expense** is recognized.</li>
-                <li>**Right-of-Use (ROU) Asset:** This is initially measured at the same value as the Lease Liability (plus initial direct costs). It is subsequently amortized (depreciated) on a **straight-line basis** over the shorter of the lease term or the useful life of the asset.</li>
-                <li>**Discount Rate:** Lessees must use the rate implicit in the lease (if readily determinable). If not, the **Incremental Borrowing Rate (IBR)** must be used. This is the rate the lessee would have to pay to borrow funds necessary to purchase the asset over a similar term.</li>
-            </ul>
+                <hr>
 
-            <hr>
+                <h3>Understanding the Accounting Entries</h3>
+                <p>Once you export your schedule, you will need to post two monthly journal entries:</p>
 
-            <h3>2. The Critical Difference: Advance vs. Arrears Payments</h3>
-            <p>The way interest expense is calculated depends entirely on when the lease payment is due. Our calculator explicitly handles both scenarios:</p>
+                <div class="journal-box">
+                    <h4>1. Lease Liability Amortization</h4>
+                    <p><strong>Dr</strong> Interest Expense (from calculator)<br>
+                    <strong>Dr</strong> Lease Liability (Principal reduction)<br>
+                    <span style="padding-left:20px"><strong>Cr</strong> Cash / Bank</span></p>
+                </div>
 
-            <table class="concept-table">
-                <thead>
-                    <tr>
-                        <th>Timing</th>
-                        <th>Accounting Name</th>
-                        <th>Impact on Interest</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>**Start of Period**</td>
-                        <td>Annuity Due / Advance</td>
-                        <td>The payment reduces the principal **before** interest is calculated for that period, resulting in a slightly lower total interest expense over the lease term.</td>
-                    </tr>
-                    <tr>
-                        <td>**End of Period**</td>
-                        <td>Ordinary Annuity / Arrears</td>
-                        <td>Interest is calculated on the **full opening balance** for the period, and the payment is applied afterward.</td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="journal-box">
+                    <h4>2. Asset Depreciation</h4>
+                    <p><strong>Dr</strong> Depreciation Expense<br>
+                    <span style="padding-left:20px"><strong>Cr</strong> Accumulated Depreciation (ROU Asset)</span></p>
+                </div>
+            </article>
 
-            <hr>
-            
-            <h3>3. Generating Journal Entries from the Schedule</h3>
-            <p>The primary benefit of generating a detailed amortization schedule is to produce the two required monthly journal entries:</p>
+            <article id="faq">
+                <h3>Frequently Asked Questions (FAQ)</h3>
+                
+                <div class="faq-item">
+                    <h4>What is the difference between Advance and Arrears?</h4>
+                    <p><strong>Payments in Advance (Annuity Due):</strong> Paid at the start of the period. Interest is calculated on the principal <em>after</em> the payment reduces it. This usually results in lower total interest expense.<br>
+                    <strong>Payments in Arrears (Ordinary Annuity):</strong> Paid at the end of the period. Interest accrues on the full opening balance before the payment is made.</p>
+                </div>
 
-            <ol>
-                <li>**Lease Liability Amortization (Interest & Principal):** This entry recognizes the monthly **Interest Expense** and the reduction of the **Lease Liability**.</li>
-                <li>**ROU Asset Depreciation:** This entry recognizes the systematic consumption of the ROU Asset over the lease term.</li>
-            </ol>
-            
-            <p class="journal-example">
-            **Example Monthly Journal Entry** (Assuming a $1,000 monthly payment)<br>
-            <span class="debit-credit">Debit: Interest Expense (From Calculator)</span><br>
-            <span class="debit-credit">Debit: Lease Liability (Payment - Interest Expense)</span><br>
-            <span class="debit-credit" style="padding-left: 50px;">Credit: Cash ($1,000)</span>
-            </p>
-
-            <p class="journal-example">
-            **Example Monthly Depreciation Entry**<br>
-            <span class="debit-credit">Debit: Depreciation Expense (Monthly Depreciation Value)</span><br>
-            <span class="debit-credit" style="padding-left: 50px;">Credit: Accumulated Depreciation (ROU Asset)</span>
-            </p>
-            
-            <p>Use the **Interest Expense** and **Depreciation** columns from the exported CSV file to populate your GL system directly, saving hours of manual calculation and ensuring audit compliance.</p>
+                <div class="faq-item">
+                    <h4>What discount rate should I use?</h4>
+                    <p>IFRS 16 requires using the rate implicit in the lease. If that cannot be readily determined (which is common for many equipment and real estate leases), the lessee must use their <strong>Incremental Borrowing Rate (IBR)</strong>.</p>
+                </div>
+            </article>
         </section>
         
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 IFRS16Pro. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/terms">Terms of Use</a>
+                <a href="/contact">Contact</a>
+            </div>
+            <p class="disclaimer">Disclaimer: This tool is for educational and informational purposes only and does not constitute professional accounting advice. Consult with a CPA or auditor for official financial reporting.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
