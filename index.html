@@ -1,84 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IFRS 16 Lease Calculator | Professional Amortization Schedule Tool</title>
-    
-    <meta name="description" content="Free professional IFRS 16 lease calculator. Generate amortization schedules, calculate PV of lease payments, and export to Excel/CSV. Built for accountants.">
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FinancialCalculator",
-      "name": "IFRS 16 Lease Amortization Calculator",
-      "description": "Calculate lease liability and ROU assets according to IFRS 16 standards.",
-      "category": "Accounting Tool",
-      "url": "https://www.ifrs16calculator.com",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
-    }
-    </script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <nav class="navbar">
-        <div class="nav-content">
-            <div class="logo"><a href="index.html" style="color:white; text-decoration:none;"><i class="fa-solid fa-calculator"></i> IFRS16<span>Pro</span></a></div>
-            <div class="nav-links">
-                <a href="about.html">About the Tool</a>
-                <span class="badge">Free for Accountants</span>
+<div id="results-section" class="hidden">
+    <div class="card results-card">
+        <div class="card-header">
+            <h2><i class="fa-solid fa-chart-pie"></i> Calculation Summary</h2>
+        </div>
+        
+        <div class="summary-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 20px;">
+            <div class="summary-item">
+                <span class="label">Total Lease Liability</span>
+                <div id="summary-liability" class="value">$0.00</div>
+            </div>
+            <div class="summary-item" style="border-left: 3px solid var(--accent);">
+                <span class="label">Right-of-Use (ROU) Asset</span>
+                <div id="summary-rou" class="value">$0.00</div>
+            </div>
+            <div class="summary-item">
+                <span class="label">Total Interest</span>
+                <div id="summary-interest" class="value" style="color: #e11d48;">$0.00</div>
             </div>
         </div>
-    </nav>
 
-    <main class="main-wrapper">
-        <section class="content-card" style="margin-top: 40px;">
-            <h2>Lease Accounting Guides</h2>
-            <div class="article-grid">
-                <div class="article-preview">
-                    <h3>IFRS 16 Journal Entries</h3>
-                    <p>Learn how to record the initial recognition of Right-of-Use assets and the monthly depreciation entries...</p>
-                    <a href="#entries" class="text-link">Read Guide</a>
-                </div>
+        <div class="card-header" style="border-top: 1px solid var(--border);">
+            <div style="display:flex; justify-content: space-between; align-items: center; width: 100%;">
+                <h2><i class="fa-solid fa-table"></i> Amortization Schedule</h2>
+                <button id="downloadBtn" class="btn-excel hidden">
+                    <i class="fa-solid fa-file-csv"></i> Export Data
+                </button>
             </div>
-        </section>
-
-        <section class="content-card">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <h3>What is the IFRS 16 formula for Lease Liability?</h3>
-                <p>The lease liability is calculated as the <strong>Present Value (PV)</strong> of future lease payments that are not paid at the commencement date, discounted using the interest rate implicit in the lease.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Is this calculator compliant with ASC 842?</h3>
-                <p>Yes. While terminology differs slightly, the underlying math for calculating the present value of lease payments is identical for both IFRS 16 and ASC 842 standards.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-nav">
-                <a href="about.html">About Us</a> | 
-                <a href="privacy-policy.html">Privacy Policy</a> | 
-                <a href="contact.html">Contact</a>
-            </div>
-            <p class="disclaimer-heavy">
-                <strong>IMPORTANT DISCLAIMER:</strong> This tool is for educational purposes. 
-                Accounting standards require professional judgment. Always verify results with a qualified CPA or Auditor before filing financial statements.
-            </p>
-            <p>&copy; 2024 IFRS16Pro. All rights reserved.</p>
         </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        </div>
+</div>
