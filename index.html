@@ -3,159 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free IFRS 16 Lease Liability Calculator. Generate amortization schedules, ROU Asset values, and export to Excel. Compliant with international accounting standards.">
-    <title>IFRS 16 Lease Calculator & Amortization Schedule | Free Tool</title>
+    <title>IFRS 16 Lease Calculator | Professional Amortization Schedule Tool</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Free professional IFRS 16 lease calculator. Generate amortization schedules, calculate PV of lease payments, and export to Excel/CSV. Built for accountants.">
     
-    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialCalculator",
+      "name": "IFRS 16 Lease Amortization Calculator",
+      "description": "Calculate lease liability and ROU assets according to IFRS 16 standards.",
+      "category": "Accounting Tool",
+      "url": "https://www.ifrs16calculator.com",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3291734589203338" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="nav-content">
-            <a href="index.html" class="logo-link">
-                <div class="logo"><i class="fa-solid fa-calculator"></i> IFRS16<span>Pro</span></div>
-            </a>
+            <div class="logo"><a href="index.html" style="color:white; text-decoration:none;"><i class="fa-solid fa-calculator"></i> IFRS16<span>Pro</span></a></div>
             <div class="nav-links">
-                <a href="#calculator">Calculator</a>
-                <a href="#guide">User Guide</a>
+                <a href="about.html">About the Tool</a>
+                <span class="badge">Free for Accountants</span>
             </div>
         </div>
     </nav>
 
-    <div class="main-wrapper">
-        
-        <div class="ad-banner">
-            <span class="ad-badge">Advertisement</span>
-            <div class="ad-content">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-3291734589203338"
-                     data-ad-slot="1234567890"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
-        </div>
-
-        <h1 class="page-title">Free IFRS 16 Lease Liability Calculator</h1>
-        
-        <div class="dashboard-grid" id="calculator">
-            <div class="card input-card">
-                <div class="card-header">
-                    <h2><i class="fa-solid fa-sliders"></i> Lease Parameters</h2>
-                </div>
-                <div class="form-grid">
-                    <div class="input-group">
-                        <label for="payment">Monthly Payment Amount</label>
-                        <div class="input-wrapper">
-                            <span>$</span>
-                            <input type="number" id="payment" placeholder="5000" min="0">
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label for="term">Lease Term (Months)</label>
-                        <div class="input-wrapper">
-                            <span><i class="fa-regular fa-calendar"></i></span>
-                            <input type="number" id="term" placeholder="36" min="1">
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label for="rate">Incremental Borrowing Rate (%)</label>
-                        <div class="input-wrapper">
-                            <span>%</span>
-                            <input type="number" id="rate" placeholder="4.5" step="0.01" min="0">
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label for="timing">Payment Timing</label>
-                        <div class="select-wrapper">
-                            <select id="timing">
-                                <option value="end">Arrears (End of Month)</option>
-                                <option value="start">Advance (Start of Month)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn-primary" id="calculateBtn" onclick="calculateSchedule()">
-                    Generate Schedule
-                </button>
-            </div>
-
-            <div class="card summary-card">
-                <div class="card-header">
-                    <h2>Executive Summary</h2>
-                </div>
-                <div class="summary-metrics hidden" id="summary-panel">
-                    <div class="metric-item">
-                        <p>Total Lease Liability</p>
-                        <h3 id="sum-liability">$0.00</h3>
-                    </div>
-                    <div class="metric-item">
-                        <p>ROU Asset Value</p>
-                        <h3 id="sum-asset">$0.00</h3>
-                    </div>
+    <main class="main-wrapper">
+        <section class="content-card" style="margin-top: 40px;">
+            <h2>Lease Accounting Guides</h2>
+            <div class="article-grid">
+                <div class="article-preview">
+                    <h3>IFRS 16 Journal Entries</h3>
+                    <p>Learn how to record the initial recognition of Right-of-Use assets and the monthly depreciation entries...</p>
+                    <a href="#entries" class="text-link">Read Guide</a>
                 </div>
             </div>
-        </div>
-
-        <div id="results-section" class="card results-card hidden">
-            <div class="results-header">
-                <h2>Amortization Schedule</h2>
-                <div id="gate-container" class="gate-container">
-                    <form id="emailForm" class="gate-form">
-                        <input type="email" id="userEmail" placeholder="Enter email to unlock download..." required>
-                        <button type="submit" class="btn-unlock">Unlock</button>
-                    </form>
-                </div>
-                <button id="downloadBtn" class="btn-excel hidden">
-                    <i class="fa-solid fa-file-csv"></i> Download CSV
-                </button>
-            </div>
-            <div class="table-container">
-                <table id="schedule-table">
-                    <thead>
-                        <tr>
-                            <th>Per.</th>
-                            <th>Opening</th>
-                            <th>Payment</th>
-                            <th class="highlight-col">Interest</th>
-                            <th>Closing</th>
-                            <th>Depreciation</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-        </div>
-
-        <section class="content-article" id="guide">
-            <article>
-                <h2>Understanding IFRS 16 Calculation</h2>
-                <p>This calculator determines the Present Value (PV) of future lease payments to establish the initial Lease Liability and Right-of-Use (ROU) Asset as required by International Financial Reporting Standards (IFRS 16).</p>
-                <h3>How to use this tool</h3>
-                <ul>
-                    <li><strong>Payment:</strong> Enter the fixed monthly amount.</li>
-                    <li><strong>Term:</strong> Enter the lease duration in months.</li>
-                    <li><strong>Rate (IBR):</strong> Enter your annual incremental borrowing rate.</li>
-                </ul>
-            </article>
         </section>
-    </div>
+
+        <section class="content-card">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>What is the IFRS 16 formula for Lease Liability?</h3>
+                <p>The lease liability is calculated as the <strong>Present Value (PV)</strong> of future lease payments that are not paid at the commencement date, discounted using the interest rate implicit in the lease.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Is this calculator compliant with ASC 842?</h3>
+                <p>Yes. While terminology differs slightly, the underlying math for calculating the present value of lease payments is identical for both IFRS 16 and ASC 842 standards.</p>
+            </div>
+        </section>
+    </main>
 
     <footer class="site-footer">
         <div class="footer-content">
-            <div class="footer-links">
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Use</a>
+            <div class="footer-nav">
+                <a href="about.html">About Us</a> | 
+                <a href="privacy-policy.html">Privacy Policy</a> | 
                 <a href="contact.html">Contact</a>
             </div>
-            <p class="disclaimer">Disclaimer: For educational purposes only. Consult a CPA for financial reporting.</p>
-            <p class="copyright">&copy; 2024 IFRS16Pro. All rights reserved.</p>
+            <p class="disclaimer-heavy">
+                <strong>IMPORTANT DISCLAIMER:</strong> This tool is for educational purposes. 
+                Accounting standards require professional judgment. Always verify results with a qualified CPA or Auditor before filing financial statements.
+            </p>
+            <p>&copy; 2024 IFRS16Pro. All rights reserved.</p>
         </div>
     </footer>
 
