@@ -1,31 +1,660 @@
-<div id="results-section" class="hidden">
-    <div class="card results-card">
-        <div class="card-header">
-            <h2><i class="fa-solid fa-chart-pie"></i> Calculation Summary</h2>
-        </div>
-        
-        <div class="summary-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 20px;">
-            <div class="summary-item">
-                <span class="label">Total Lease Liability</span>
-                <div id="summary-liability" class="value">$0.00</div>
-            </div>
-            <div class="summary-item" style="border-left: 3px solid var(--accent);">
-                <span class="label">Right-of-Use (ROU) Asset</span>
-                <div id="summary-rou" class="value">$0.00</div>
-            </div>
-            <div class="summary-item">
-                <span class="label">Total Interest</span>
-                <div id="summary-interest" class="value" style="color: #e11d48;">$0.00</div>
-            </div>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>IFRS 16 Lease Calculator | Free ROU Asset & Liability Calculator | SFRS 16 & MFRS 16</title>
+    <meta name="description" content="Free IFRS 16 lease calculator for Singapore (SFRS 16) & Malaysia (MFRS 16). Calculate lease liability, ROU asset, and generate amortization schedules. Export to Excel. Trusted by auditors & accountants.">
+    <meta name="keywords" content="IFRS 16 calculator, lease liability calculator, ROU asset calculator, right of use asset, SFRS 16, MFRS 16, lease amortization schedule, Singapore lease accounting, Malaysia lease accounting, present value calculator, annuity due, ordinary annuity">
+    <meta name="author" content="IFRS16 Calculator">
+    <meta name="geo.region" content="SG">
+    <meta name="geo.region" content="MY">
+    <link rel="canonical" href="https://www.ifrs16calculator.com/" />
 
-        <div class="card-header" style="border-top: 1px solid var(--border);">
-            <div style="display:flex; justify-content: space-between; align-items: center; width: 100%;">
-                <h2><i class="fa-solid fa-table"></i> Amortization Schedule</h2>
-                <button id="downloadBtn" class="btn-excel hidden">
-                    <i class="fa-solid fa-file-csv"></i> Export Data
+    <!-- Hreflang for regional targeting -->
+    <link rel="alternate" hreflang="en-sg" href="https://www.ifrs16calculator.com/" />
+    <link rel="alternate" hreflang="en-my" href="https://www.ifrs16calculator.com/" />
+    <link rel="alternate" hreflang="en" href="https://www.ifrs16calculator.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.ifrs16calculator.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ifrs16calculator.com/">
+    <meta property="og:title" content="IFRS 16 Lease Calculator | Free Professional Tool">
+    <meta property="og:description" content="Calculate lease liability, ROU asset value, and generate audit-ready amortization schedules. Free export to Excel/CSV.">
+    <meta property="og:image" content="https://www.ifrs16calculator.com/og-image.png">
+    <meta property="og:locale" content="en_SG">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IFRS 16 Lease Calculator | Free Professional Tool">
+    <meta name="twitter:description" content="Calculate lease liability, ROU asset value, and generate audit-ready amortization schedules. Free export to Excel/CSV.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3291734589203338"
+     crossorigin="anonymous"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSWBGWKY7K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NSWBGWKY7K');
+    </script>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data: Software Application -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "IFRS 16 Lease Calculator",
+      "operatingSystem": "Web",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "A professional-grade calculator for IFRS 16 lease accounting, featuring present value calculation, ROU asset computation, and CSV export."
+    }
+    </script>
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "IFRS16 Calculator",
+      "url": "https://www.ifrs16calculator.com",
+      "logo": "https://www.ifrs16calculator.com/logo.png",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "ifrscalculator@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is IFRS 16?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IFRS 16 is the International Financial Reporting Standard for lease accounting, effective from January 1, 2019. It requires lessees to recognize most leases on their balance sheet as a right-of-use (ROU) asset and a corresponding lease liability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Ordinary Annuity and Annuity Due?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Annuity Due means payment is made at the start of each period, reducing principal sooner and resulting in lower total interest. Ordinary Annuity means payment is made at the end of each period, with interest accruing on the full opening balance before payment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this calculator compliant with SFRS 16 and MFRS 16?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SFRS 16 (Singapore) and MFRS 16 (Malaysia) are locally adopted versions of IFRS 16 and follow the same calculation methodology for lease liability and ROU asset recognition."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Initial Lease Liability / Present Value?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This is the present value of all future lease payments discounted back to the lease commencement date using the interest rate implicit in the lease (or the lessee's incremental borrowing rate). Under IFRS 16, this becomes your initial lease liability on the balance sheet."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: HowTo -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Calculate IFRS 16 Lease Liability",
+      "description": "Step-by-step guide to calculating lease liability and ROU asset under IFRS 16",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Enter Payment Amount",
+          "text": "Input your periodic lease payment amount (monthly, quarterly, or annual)"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Set Lease Term",
+          "text": "Enter the total number of payment periods in your lease"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Input Interest Rate",
+          "text": "Enter your incremental borrowing rate or the rate implicit in the lease"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Select Payment Timing",
+          "text": "Choose whether payments are made at the start (Annuity Due) or end (Ordinary Annuity) of each period"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Generate Schedule",
+          "text": "Click Generate Schedule to view your complete amortization table with interest expense breakdown"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fa-solid fa-calculator"></i></span>
+                <span class="logo-text">IFRS16<span class="logo-accent">Calculator</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="#calculator">Calculator</a>
+                <a href="#guide">Guide</a>
+                <a href="#faq">FAQ</a>
+                <a href="about.html">About</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-wrapper">
+        
+        <!-- Hero Section -->
+        <header class="hero-section">
+            <div class="hero-badge">
+                <i class="fa-solid fa-check-circle"></i> SFRS 16 & MFRS 16 Compliant
+            </div>
+            <h1 class="page-title">IFRS 16 Lease Calculator</h1>
+            <p class="page-subtitle">Calculate lease liability, ROU asset value, and generate audit-ready amortization schedules. Free for accountants and auditors in Singapore, Malaysia, and worldwide.</p>
+
+        </header>
+
+        <!-- Calculator Section -->
+        <section id="calculator" class="dashboard-grid">
+            
+            <div class="card input-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-sliders"></i> Lease Parameters</h2>
+                    <button type="button" class="btn-example" id="loadExampleBtn" title="Load example values">
+                        <i class="fa-solid fa-lightbulb"></i> Load Example
+                    </button>
+                </div>
+                
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="payment">Periodic Payment Amount <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="payment" placeholder="e.g., 5000" aria-label="Periodic Payment Amount" min="0" step="0.01">
+                        </div>
+                        <small class="input-hint">Monthly, quarterly, or annual payment</small>
+                        <span class="error-message" id="payment-error"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="term">Lease Term (Number of Periods) <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <span class="icon-symbol"><i class="fa-regular fa-calendar"></i></span>
+                            <input type="number" id="term" placeholder="e.g., 36" aria-label="Lease Term in Periods" min="1" max="600">
+                        </div>
+                        <small class="input-hint">Total payment periods (e.g., 36 months = 3 years)</small>
+                        <span class="error-message" id="term-error"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="rate">Annual Interest Rate (%) <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <span class="icon-symbol">%</span>
+                            <input type="number" id="rate" placeholder="e.g., 4.5" step="0.01" aria-label="Annual Discount Rate" min="0" max="100">
+                        </div>
+                        <small class="input-hint">Incremental borrowing rate or rate implicit in the lease</small>
+                        <span class="error-message" id="rate-error"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="timing">Payment Timing</label>
+                        <div class="select-wrapper">
+                            <select id="timing" aria-label="Payment Timing">
+                                <option value="end">End of Period (Ordinary Annuity / Arrears)</option>
+                                <option value="start">Start of Period (Annuity Due / Advance)</option>
+                            </select>
+                            <span class="select-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+                        <small class="input-hint">When lease payments are due</small>
+                    </div>
+                </div>
+
+                <button class="btn-primary" id="calculateBtn">
+                    <i class="fa-solid fa-bolt"></i> Generate Amortization Schedule
                 </button>
             </div>
+
+            <div class="card summary-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-chart-pie"></i> Results Summary</h2>
+                </div>
+                
+                <div class="summary-placeholder" id="summary-placeholder">
+                    <div class="placeholder-icon">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                    <p>Enter your lease details and click <strong>"Generate Schedule"</strong> to see results</p>
+                </div>
+
+                <div class="summary-metrics hidden" id="summary-panel">
+                    <div class="metric-item">
+                        <div class="metric-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                        <div class="metric-content">
+                            <p>Initial Lease Liability</p>
+                            <h3 id="sum-liability">$0.00</h3>
+                            <small>Present Value of Lease Payments</small>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-icon"><i class="fa-solid fa-building"></i></div>
+                        <div class="metric-content">
+                            <p>Right-of-Use (ROU) Asset</p>
+                            <h3 id="sum-asset">$0.00</h3>
+                            <small>Initial Asset Recognition Value</small>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-icon"><i class="fa-solid fa-calendar-minus"></i></div>
+                        <div class="metric-content">
+                            <p>Periodic Depreciation</p>
+                            <h3 id="sum-dep">$0.00</h3>
+                            <small>Straight-line Amortization per Period</small>
+                        </div>
+                    </div>
+                    <div class="metric-item highlight-metric">
+                        <div class="metric-icon"><i class="fa-solid fa-percentage"></i></div>
+                        <div class="metric-content">
+                            <p>Total Interest Expense</p>
+                            <h3 id="sum-interest">$0.00</h3>
+                            <small>Total Interest Over Lease Term</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-section" class="card results-card hidden">
+            <div class="results-header">
+                <h2><i class="fa-solid fa-table"></i> Amortization Schedule</h2>
+                
+                <div class="results-actions">
+                    <div id="gate-container" class="gate-container">
+                        <form id="emailForm" action="https://formspree.io/f/xqajgony" method="POST" class="gate-form">
+                            <div class="input-wrapper-small">
+                                <input type="email" name="email" id="userEmail" placeholder="Enter email to unlock Excel export..." required>
+                            </div>
+                            <button type="submit" class="btn-unlock">
+                                <i class="fa-solid fa-lock-open"></i> Unlock CSV
+                            </button>
+                        </form>
+                        <p class="privacy-micro"><i class="fa-solid fa-shield-halved"></i> We respect your privacy. No spam, ever.</p>
+                    </div>
+
+                    <button id="downloadBtn" class="btn-excel hidden">
+                        <i class="fa-solid fa-file-csv"></i> Download CSV / Excel
+                    </button>
+                    
+                    <button id="printBtn" class="btn-print hidden">
+                        <i class="fa-solid fa-print"></i> Print
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Period</th>
+                            <th>Opening Balance</th>
+                            <th>Payment</th>
+                            <th class="highlight-col">Interest Expense</th>
+                            <th>Principal Reduction</th>
+                            <th>Closing Balance</th>
+                            <th>ROU Depreciation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot id="schedule-totals" class="hidden">
+                        <tr>
+                            <td><strong>TOTAL</strong></td>
+                            <td>—</td>
+                            <td id="total-payment"><strong>$0.00</strong></td>
+                            <td class="highlight-col" id="total-interest"><strong>$0.00</strong></td>
+                            <td id="total-principal"><strong>$0.00</strong></td>
+                            <td>—</td>
+                            <td id="total-depreciation"><strong>$0.00</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+        <!-- IFRS 16 Guide Section -->
+        <section id="guide" class="card content-card guide-section">
+            <h2><i class="fa-solid fa-book-open"></i> Understanding IFRS 16 Lease Accounting</h2>
+            
+            <div class="guide-intro">
+                <p><strong>IFRS 16 "Leases"</strong> is the International Financial Reporting Standard that revolutionized lease accounting worldwide. Effective from <strong>January 1, 2019</strong>, it replaced IAS 17 and fundamentally changed how companies recognize, measure, and disclose lease transactions.</p>
+                
+                <div class="standard-badges">
+                    <div class="badge-item">
+                        <span class="badge-label">Singapore</span>
+                        <span class="badge-value">SFRS(I) 16</span>
+                    </div>
+                    <div class="badge-item">
+                        <span class="badge-label">Malaysia</span>
+                        <span class="badge-value">MFRS 16</span>
+                    </div>
+                    <div class="badge-item">
+                        <span class="badge-label">International</span>
+                        <span class="badge-value">IFRS 16</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-grid">
+                <article class="guide-item">
+                    <h3><i class="fa-solid fa-scale-balanced"></i> The Core Change: On-Balance Sheet Recognition</h3>
+                    <p>Before IFRS 16, operating leases were kept "off-balance sheet"—only disclosed in footnotes. Under the new standard, <strong>almost all leases must now appear on the balance sheet</strong> as:</p>
+                    <ul>
+                        <li><strong>Right-of-Use (ROU) Asset:</strong> Representing the lessee's right to use the leased asset over the lease term</li>
+                        <li><strong>Lease Liability:</strong> The present value of future lease payments the lessee is obligated to make</li>
+                    </ul>
+                    <p>This brings greater transparency to financial statements and allows investors to better assess a company's true financial obligations.</p>
+                </article>
+
+                <article class="guide-item">
+                    <h3><i class="fa-solid fa-calculator"></i> How Lease Liability is Calculated</h3>
+                    <p>The initial lease liability equals the <strong>present value of lease payments</strong> not yet paid at the commencement date. The discount rate used is typically:</p>
+                    <ol>
+                        <li><strong>Interest rate implicit in the lease</strong> (if readily determinable), or</li>
+                        <li><strong>Lessee's incremental borrowing rate</strong> (the rate at which the lessee could borrow a similar amount for a similar term)</li>
+                    </ol>
+                    <div class="formula-box">
+                        <p><strong>Present Value Formula:</strong></p>
+                        <code>PV = PMT × [(1 - (1 + r)^-n) / r]</code>
+                        <p class="formula-note">Where PMT = periodic payment, r = periodic interest rate, n = number of periods</p>
+                    </div>
+                </article>
+
+                <article class="guide-item">
+                    <h3><i class="fa-solid fa-building"></i> Right-of-Use Asset Measurement</h3>
+                    <p>The ROU asset is initially measured at cost, which includes:</p>
+                    <ul>
+                        <li>The initial lease liability amount</li>
+                        <li>Lease payments made at or before commencement (less incentives received)</li>
+                        <li>Initial direct costs incurred by the lessee</li>
+                        <li>Estimated costs to dismantle/restore the underlying asset</li>
+                    </ul>
+                    <p>For simplicity, this calculator assumes <strong>ROU Asset = Initial Lease Liability</strong>, which is appropriate when there are no prepayments, incentives, or restoration costs.</p>
+                </article>
+
+                <article class="guide-item">
+                    <h3><i class="fa-solid fa-arrows-rotate"></i> Subsequent Measurement</h3>
+                    <p>After initial recognition:</p>
+                    <ul>
+                        <li><strong>Lease Liability:</strong> Increases by interest expense each period, decreases by lease payments made. The interest is calculated using the effective interest method.</li>
+                        <li><strong>ROU Asset:</strong> Typically depreciated on a straight-line basis over the shorter of the lease term or the asset's useful life.</li>
+                    </ul>
+                    <p>This creates a <strong>"front-loaded" expense pattern</strong>—total expense (interest + depreciation) is higher in early periods and decreases over time.</p>
+                </article>
+            </div>
+
+            <div class="guide-comparison">
+                <h3><i class="fa-solid fa-code-compare"></i> IFRS 16 vs IAS 17: Key Differences</h3>
+                <div class="comparison-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>IAS 17 (Old Standard)</th>
+                                <th>IFRS 16 (Current Standard)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Operating Lease Classification</td>
+                                <td>Off-balance sheet; expense recognized on straight-line basis</td>
+                                <td>On-balance sheet; ROU asset and lease liability recognized</td>
+                            </tr>
+                            <tr>
+                                <td>Expense Recognition</td>
+                                <td>Single operating expense (rent)</td>
+                                <td>Depreciation expense + Interest expense (separate line items)</td>
+                            </tr>
+                            <tr>
+                                <td>Impact on EBITDA</td>
+                                <td>Lease payments reduce EBITDA</td>
+                                <td>Only depreciation affects operating expenses; interest is below EBIT. EBITDA increases.</td>
+                            </tr>
+                            <tr>
+                                <td>Balance Sheet Impact</td>
+                                <td>Minimal for operating leases</td>
+                                <td>Significant increase in assets and liabilities</td>
+                            </tr>
+                            <tr>
+                                <td>Financial Ratios</td>
+                                <td>Debt/equity may appear lower</td>
+                                <td>Debt/equity increases; asset turnover may decrease</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="guide-local">
+                <h3><i class="fa-solid fa-globe-asia"></i> Regional Standards: Singapore & Malaysia</h3>
+                <div class="local-grid">
+                    <div class="local-item">
+                        <h4><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3Crect fill='%23ED2939' width='4' height='1.5'/%3E%3Crect fill='white' y='1.5' width='4' height='1.5'/%3E%3Ccircle fill='white' cx='.6' cy='.75' r='.4'/%3E%3C/svg%3E" alt="Singapore flag" class="flag-icon"> SFRS(I) 16 — Singapore</h4>
+                        <p>Singapore Financial Reporting Standards (International) 16 is <strong>identical to IFRS 16</strong>. It applies to Singapore-incorporated companies that prepare financial statements in accordance with SFRS(I). The Accounting and Corporate Regulatory Authority (ACRA) mandates compliance for listed companies and qualifying entities.</p>
+                        <ul>
+                            <li>Effective: 1 January 2019</li>
+                            <li>Regulator: ACRA, ASC</li>
+                            <li>Exemptions: Short-term leases (&lt;12 months), low-value assets</li>
+                        </ul>
+                    </div>
+                    <div class="local-item">
+                        <h4><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 1'%3E%3Crect fill='%23CC0000' width='2' height='.5'/%3E%3Crect fill='white' y='.5' width='2' height='.5'/%3E%3C/svg%3E" alt="Malaysia flag" class="flag-icon"> MFRS 16 — Malaysia</h4>
+                        <p>Malaysian Financial Reporting Standard 16 is <strong>word-for-word identical to IFRS 16</strong>, issued by the Malaysian Accounting Standards Board (MASB). It applies to all entities in Malaysia except for private entities that may apply MPERS.</p>
+                        <ul>
+                            <li>Effective: 1 January 2019</li>
+                            <li>Regulator: MASB, Securities Commission</li>
+                            <li>Exemptions: Same as IFRS 16</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-cta">
+                <p><strong>Ready to calculate?</strong> Use the calculator above to determine your lease liability and generate a complete amortization schedule.</p>
+                <a href="#calculator" class="btn-secondary"><i class="fa-solid fa-arrow-up"></i> Go to Calculator</a>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="card content-card faq-section">
+            <h2><i class="fa-solid fa-circle-question"></i> Frequently Asked Questions</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4><i class="fa-solid fa-q"></i> What is the difference between Ordinary Annuity and Annuity Due?</h4>
+                    <div class="faq-answer">
+                        <p><strong>Annuity Due (Start of Period / Advance):</strong> Payment is made at the beginning of each period. Since payment reduces the principal immediately, interest is calculated on a smaller balance, resulting in lower total interest expense over the lease term.</p>
+                        <p><strong>Ordinary Annuity (End of Period / Arrears):</strong> Payment is made at the end of each period. Interest accrues on the full opening balance before the payment is applied. This is the more common arrangement for most leases.</p>
+                        <div class="faq-tip">
+                            <i class="fa-solid fa-lightbulb"></i> <strong>Tip:</strong> Check your lease agreement for terms like "payable in advance" (Annuity Due) or "payable in arrears" (Ordinary Annuity).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h4><i class="fa-solid fa-q"></i> What is the Initial Lease Liability / Present Value?</h4>
+                    <div class="faq-answer">
+                        <p>The Initial Lease Liability is the present value of all future lease payments, discounted using the interest rate implicit in the lease or your incremental borrowing rate. Under IFRS 16, this amount is recognized on your balance sheet as a financial liability at lease commencement.</p>
+                        <p>For example, if you have a 3-year lease with monthly payments of $5,000 at 4.5% annual interest, the present value (~$169,000) will be lower than the total undiscounted payments ($180,000) because money has time value.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h4><i class="fa-solid fa-q"></i> Is this calculator suitable for SFRS 16 (Singapore) and MFRS 16 (Malaysia)?</h4>
+                    <div class="faq-answer">
+                        <p><strong>Yes, absolutely.</strong> SFRS(I) 16 and MFRS 16 are locally adopted versions of IFRS 16 and are word-for-word identical to the international standard. The calculation methodology for lease liability, ROU asset, and amortization schedules is exactly the same.</p>
+                        <p>This calculator is used by accountants and auditors across Singapore, Malaysia, and other IFRS-adopting jurisdictions.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h4><i class="fa-solid fa-q"></i> What interest rate should I use?</h4>
+                    <div class="faq-answer">
+                        <p>IFRS 16 requires you to use the <strong>interest rate implicit in the lease</strong> if it can be readily determined. If not (which is common), use your <strong>incremental borrowing rate (IBR)</strong>—the rate you would pay to borrow funds of similar amount and term.</p>
+                        <p>For Singapore/Malaysia entities, this is often based on bank lending rates (e.g., prime rate, SIBOR/SORA + spread) adjusted for the specific characteristics of the lease.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h4><i class="fa-solid fa-q"></i> Can I use this for short-term or low-value leases?</h4>
+                    <div class="faq-answer">
+                        <p>IFRS 16 provides <strong>optional exemptions</strong> for:</p>
+                        <ul>
+                            <li><strong>Short-term leases:</strong> Leases with a term of 12 months or less (with no purchase option)</li>
+                            <li><strong>Low-value leases:</strong> Leases where the underlying asset has low value when new (e.g., laptops, small furniture—generally under ~$5,000 USD)</li>
+                        </ul>
+                        <p>If you elect these exemptions, you simply expense payments on a straight-line basis and don't need this calculator. However, if you choose to capitalize them, this tool works perfectly.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h4><i class="fa-solid fa-q"></i> Why does the interest expense decrease each period?</h4>
+                    <div class="faq-answer">
+                        <p>IFRS 16 requires the <strong>effective interest method</strong>. Interest is calculated as: Opening Balance × Periodic Interest Rate. As you make payments and reduce the principal (lease liability), the balance decreases, so interest expense naturally decreases over time.</p>
+                        <p>This creates a "front-loaded" expense pattern where total expense (interest + depreciation) is higher in early periods.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h4><i class="fa-solid fa-q"></i> How do I record the journal entries?</h4>
+                    <div class="faq-answer">
+                        <p><strong>At Commencement:</strong></p>
+                        <div class="journal-box">
+                            Dr. Right-of-Use Asset &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $XXX<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;Cr. Lease Liability &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $XXX
+                        </div>
+                        <p><strong>Each Period:</strong></p>
+                        <div class="journal-box">
+                            Dr. Interest Expense &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $XXX<br>
+                            Dr. Lease Liability &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $XXX<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;Cr. Cash/Bank &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $XXX<br><br>
+                            Dr. Depreciation Expense &nbsp; $XXX<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;Cr. Accumulated Depreciation $XXX
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h4><i class="fa-solid fa-q"></i> Is this tool free to use?</h4>
+                    <div class="faq-answer">
+                        <p><strong>Yes, 100% free.</strong> The calculator is free for personal and professional use. We simply ask for your email to unlock the CSV export feature so we can occasionally share useful accounting resources with you. You can unsubscribe at any time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Section -->
+        <section class="trust-section">
+            <h3>Trusted by Finance Professionals</h3>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Secure & Private</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fa-solid fa-code"></i>
+                    <span>No Server Processing</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fa-solid fa-certificate"></i>
+                    <span>IFRS 16 Compliant</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Always Available</span>
+                </div>
+            </div>
+            <p class="trust-note">All calculations are performed locally in your browser. Your lease data never leaves your device.</p>
+        </section>
+        
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fa-solid fa-calculator"></i> IFRS16<span>Calculator</span>
+                </div>
+                <p>Free lease accounting tools for finance professionals.</p>
+            </div>
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>Tools</h4>
+                    <a href="index.html">Lease Calculator</a>
+                    <a href="#guide">IFRS 16 Guide</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Use</a>
+                </div>
+            </div>
         </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 IFRS16 Calculator. All rights reserved.</p>
+            <p class="disclaimer">Disclaimer: This tool is for educational and informational purposes only and does not constitute professional financial or accounting advice. Always consult with a qualified accountant, CPA, or auditor before making financial decisions or preparing regulatory filings.</p>
         </div>
-</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
