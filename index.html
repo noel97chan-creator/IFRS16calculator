@@ -36,6 +36,8 @@
     <!-- Additional SEO Meta Tags -->
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="theme-color" content="#1e3a5f">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -54,6 +56,13 @@
       gtag('config', 'G-NSWBGWKY7K');
     </script>
     
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -93,20 +102,30 @@
     }
     </script>
 
-    <!-- Structured Data: FAQ -->
+    <!-- Structured Data: WebSite with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "IFRS16 Calculator",
+      "alternateName": "IFRS 16 Lease Calculator",
+      "url": "https://www.ifrs16calculator.com",
+      "description": "Free professional IFRS 16 lease calculator for accountants and auditors. Calculate lease liability, ROU asset, and generate amortization schedules.",
+      "inLanguage": ["en", "en-SG", "en-MY"],
+      "publisher": {
+        "@type": "Organization",
+        "name": "IFRS16 Calculator",
+        "url": "https://www.ifrs16calculator.com"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: FAQ (Complete with all 8 questions) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is IFRS 16?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "IFRS 16 is the International Financial Reporting Standard for lease accounting, effective from January 1, 2019. It requires lessees to recognize most leases on their balance sheet as a right-of-use (ROU) asset and a corresponding lease liability."
-          }
-        },
         {
           "@type": "Question",
           "name": "What is the difference between Ordinary Annuity and Annuity Due?",
@@ -117,18 +136,58 @@
         },
         {
           "@type": "Question",
-          "name": "Is this calculator compliant with SFRS 16 and MFRS 16?",
+          "name": "What is the Initial Lease Liability / Present Value?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. SFRS 16 (Singapore) and MFRS 16 (Malaysia) are locally adopted versions of IFRS 16 and follow the same calculation methodology for lease liability and ROU asset recognition."
+            "text": "The Initial Lease Liability is the present value of all future lease payments, discounted using the interest rate implicit in the lease or your incremental borrowing rate. Under IFRS 16, this amount is recognized on your balance sheet as a financial liability at lease commencement."
           }
         },
         {
           "@type": "Question",
-          "name": "What is the Initial Lease Liability / Present Value?",
+          "name": "Is this calculator suitable for SFRS 16 (Singapore) and MFRS 16 (Malaysia)?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "This is the present value of all future lease payments discounted back to the lease commencement date using the interest rate implicit in the lease (or the lessee's incremental borrowing rate). Under IFRS 16, this becomes your initial lease liability on the balance sheet."
+            "text": "Yes, absolutely. SFRS(I) 16 and MFRS 16 are locally adopted versions of IFRS 16 and are word-for-word identical to the international standard. The calculation methodology for lease liability, ROU asset, and amortization schedules is exactly the same."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What interest rate should I use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IFRS 16 requires you to use the interest rate implicit in the lease if it can be readily determined. If not (which is common), use your incremental borrowing rate (IBR)—the rate you would pay to borrow funds of similar amount and term."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this for short-term or low-value leases?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IFRS 16 provides optional exemptions for short-term leases (12 months or less with no purchase option) and low-value leases (underlying asset value under ~$5,000 USD when new). If you elect these exemptions, you expense payments on a straight-line basis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the interest expense decrease each period?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IFRS 16 requires the effective interest method. Interest is calculated as Opening Balance × Periodic Interest Rate. As you make payments and reduce the principal, the balance decreases, so interest expense naturally decreases over time, creating a front-loaded expense pattern."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I record the journal entries for IFRS 16 leases?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At commencement: Dr. Right-of-Use Asset, Cr. Lease Liability. Each period: Dr. Interest Expense, Dr. Lease Liability, Cr. Cash for the payment; and Dr. Depreciation Expense, Cr. Accumulated Depreciation for the ROU asset amortization."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this tool free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, 100% free. The calculator is free for personal and professional use. We ask for your email to unlock the CSV export feature so we can occasionally share useful accounting resources with you. You can unsubscribe at any time."
           }
         }
       ]
@@ -169,6 +228,111 @@
           "text": "Click Generate Schedule to view your complete amortization table with interest expense breakdown"
         }
       ]
+    }
+    </script>
+
+    <!-- Structured Data: WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "IFRS 16 Lease Calculator",
+      "url": "https://www.ifrs16calculator.com",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any (Web Browser)",
+      "browserRequirements": "Requires JavaScript enabled",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Present Value Calculation",
+        "Right-of-Use Asset Computation",
+        "Lease Liability Calculation",
+        "Amortization Schedule Generation",
+        "CSV/Excel Export",
+        "Annuity Due and Ordinary Annuity Support",
+        "IFRS 16/SFRS 16/MFRS 16 Compliant"
+      ],
+      "screenshot": "https://www.ifrs16calculator.com/og-image.png",
+      "softwareHelp": {
+        "@type": "CreativeWork",
+        "url": "https://www.ifrs16calculator.com/#guide"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "IFRS16 Calculator"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: FinancialProduct -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialProduct",
+      "name": "IFRS 16 Lease Accounting Calculator",
+      "description": "Free professional tool for calculating lease liability, ROU asset, and generating IFRS 16 compliant amortization schedules for accountants and auditors.",
+      "url": "https://www.ifrs16calculator.com",
+      "provider": {
+        "@type": "Organization",
+        "name": "IFRS16 Calculator",
+        "url": "https://www.ifrs16calculator.com"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Singapore"
+        },
+        {
+          "@type": "Country",
+          "name": "Malaysia"
+        },
+        {
+          "@type": "Place",
+          "name": "Worldwide"
+        }
+      ],
+      "category": "Accounting Tool",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: Service -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "IFRS 16 Lease Calculation Service",
+      "description": "Free online lease accounting calculator providing present value calculations, ROU asset computations, and amortization schedules compliant with IFRS 16, SFRS 16, and MFRS 16 standards.",
+      "provider": {
+        "@type": "Organization",
+        "name": "IFRS16 Calculator",
+        "url": "https://www.ifrs16calculator.com"
+      },
+      "serviceType": "Financial Calculation Tool",
+      "areaServed": "Worldwide",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Accountants, Auditors, Finance Professionals"
+      },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://www.ifrs16calculator.com",
+        "serviceType": "Web Application"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "termsOfService": "https://www.ifrs16calculator.com/terms.html"
     }
     </script>
 </head>
@@ -342,16 +506,16 @@
             </div>
 
             <div class="table-container">
-                <table id="schedule-table">
+                <table id="schedule-table" role="table" aria-label="IFRS 16 Lease Amortization Schedule">
                     <thead>
                         <tr>
-                            <th>Period</th>
-                            <th>Opening Balance</th>
-                            <th>Payment</th>
-                            <th class="highlight-col">Interest Expense</th>
-                            <th>Principal Reduction</th>
-                            <th>Closing Balance</th>
-                            <th>ROU Depreciation</th>
+                            <th scope="col">Period</th>
+                            <th scope="col">Opening Balance</th>
+                            <th scope="col">Payment</th>
+                            <th scope="col" class="highlight-col">Interest Expense</th>
+                            <th scope="col">Principal Reduction</th>
+                            <th scope="col">Closing Balance</th>
+                            <th scope="col">ROU Depreciation</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -445,12 +609,13 @@
             <div class="guide-comparison">
                 <h3><i class="fa-solid fa-code-compare"></i> IFRS 16 vs IAS 17: Key Differences</h3>
                 <div class="comparison-table-container">
-                    <table class="comparison-table">
+                    <table class="comparison-table" role="table" aria-label="Comparison of IAS 17 and IFRS 16 lease accounting standards">
+                        <caption class="visually-hidden">Key differences between IAS 17 and IFRS 16 lease accounting standards</caption>
                         <thead>
                             <tr>
-                                <th>Aspect</th>
-                                <th>IAS 17 (Old Standard)</th>
-                                <th>IFRS 16 (Current Standard)</th>
+                                <th scope="col">Aspect</th>
+                                <th scope="col">IAS 17 (Old Standard)</th>
+                                <th scope="col">IFRS 16 (Current Standard)</th>
                             </tr>
                         </thead>
                         <tbody>
