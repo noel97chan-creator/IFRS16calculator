@@ -530,6 +530,68 @@
             </div>
         </section>
 
+        <!-- Equipment Lease Pain Points Section -->
+        <section class="card content-card" style="margin-bottom: 2rem;">
+            <h2><i class="fa-solid fa-circle-exclamation"></i> Common Equipment Lease Accounting Challenges (Solved)</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">Equipment leases present unique accounting complexities. Here's how to handle the most common issues:</p>
+
+            <div class="guide-grid" style="gap: 1.5rem;">
+                <div class="guide-item" style="background: #fff7ed; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                    <h3 style="margin-top: 0; color: #92400e;"><i class="fa-solid fa-wrench"></i> Problem: Technology Obsolescence</h3>
+                    <p><strong>Challenge:</strong> IT equipment (servers, computers) becomes obsolete quickly. Should you use economic life or lease term for ROU depreciation?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> IFRS 16 requires depreciation over the <em>shorter of</em> lease term or useful life. For 3-year IT leases where useful life is 5 years, depreciate over 3 years. Our calculator uses lease term, which is typically correct for equipment leases.</p>
+                    </div>
+                </div>
+
+                <div class="guide-item" style="background: #fff7ed; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                    <h3 style="margin-top: 0; color: #92400e;"><i class="fa-solid fa-dollar-sign"></i> Problem: Residual Value Guarantees</h3>
+                    <p><strong>Challenge:</strong> Equipment lease includes a residual value guarantee (e.g., "you guarantee equipment will be worth $50K at end of lease").</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> Include the <em>expected payment</em> under the residual value guarantee in your lease liability calculation. If you expect to pay $20K (because equipment will only be worth $30K), add $20K as a final payment in period N+1. Tip: Use "Add Lease Modification" to model this.</p>
+                    </div>
+                </div>
+
+                <div class="guide-item" style="background: #fff7ed; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                    <h3 style="margin-top: 0; color: #92400e;"><i class="fa-solid fa-tools"></i> Problem: Equipment Upgrades Mid-Lease</h3>
+                    <p><strong>Challenge:</strong> You add components to leased machinery (e.g., upgrade CNC machine with new tooling). Does this remeasure the lease?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> If the upgrade is a <em>separate lease component</em> (separately identifiable, priced separately), treat as a new lease. If it's just a modification to the existing lease (e.g., payment increases from $5K to $6K), remeasure using our "Add Lease Modification" feature at the effective period.</p>
+                    </div>
+                </div>
+
+                <div class="guide-item" style="background: #fff7ed; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                    <h3 style="margin-top: 0; color: #92400e;"><i class="fa-solid fa-percent"></i> Problem: Determining the Implicit Rate</h3>
+                    <p><strong>Challenge:</strong> Equipment lessor won't disclose the implicit rate (or you don't know the fair value of the equipment).</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> Use your <strong>Incremental Borrowing Rate (IBR)</strong>. For equipment, this is typically your bank's equipment financing rate + 1-2% risk premium. Singapore: ~5-6%, Malaysia: ~6.5-7.5%. Always document your IBR methodology for auditors.</p>
+                    </div>
+                </div>
+
+                <div class="guide-item" style="background: #fff7ed; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                    <h3 style="margin-top: 0; color: #92400e;"><i class="fa-solid fa-list-check"></i> Problem: Bundled Equipment + Services</h3>
+                    <p><strong>Challenge:</strong> Lease includes equipment + maintenance service for one monthly fee (e.g., copier lease with service contract).</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> Separate the lease component from non-lease components. Use standalone selling prices to allocate. Example: If copier-only lease is $800/mo and service-only is $200/mo, allocate 80%/20% of your $1,000 payment. Only capitalize the $800 lease component.</p>
+                    </div>
+                </div>
+
+                <div class="guide-item" style="background: #fff7ed; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                    <h3 style="margin-top: 0; color: #92400e;"><i class="fa-solid fa-clock"></i> Problem: Short-Term Lease Exemption Threshold</h3>
+                    <p><strong>Challenge:</strong> You have dozens of small equipment leases (laptops, printers). Can you use the short-term exemption?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> Short-term exemption applies to leases ≤12 months <em>with no purchase option</em>. Apply by <strong>class of underlying asset</strong> (e.g., all computer leases). Once elected, must apply consistently. Most laptop leases (2-3 years) won't qualify—you'll need to capitalize them.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1.5rem; border-radius: 8px; margin-top: 2rem; border-left: 4px solid #f59e0b;">
+                <h4 style="margin-top: 0; color: #78350f;"><i class="fa-solid fa-lightbulb"></i> Accountant Pro Tip: Equipment Lease Portfolios</h4>
+                <p style="margin: 0.5rem 0; color: #92400e; line-height: 1.7;">If you have <strong>similar equipment leases</strong> with comparable terms (e.g., 50 laptops, each on 3-year leases), you can apply a <strong>portfolio approach</strong>. Calculate one "model lease" and apply it to the portfolio. This dramatically reduces workload while maintaining IFRS 16 compliance.</p>
+                <p style="margin: 0.5rem 0 0 0; color: #92400e;"><strong>Example:</strong> Instead of 50 individual calculations, group into "Laptop Portfolio" and calculate once using average payment/term. Disclose portfolio approach in your accounting policy note.</p>
+            </div>
+        </section>
+
         <!-- Calculator Section -->
         <section id="calculator" class="dashboard-grid">
 

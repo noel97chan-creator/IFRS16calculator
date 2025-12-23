@@ -518,6 +518,80 @@
             </div>
         </section>
 
+        <!-- ASC 842 Pain Points Section -->
+        <section class="card content-card" style="margin-bottom: 2rem;">
+            <h2><i class="fa-solid fa-circle-info"></i> ASC 842 Implementation Challenges (Solved)</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">Transitioning from ASC 840 or implementing ASC 842 for the first time? Here's how to navigate the most common stumbling blocks:</p>
+
+            <div class="guide-grid" style="gap: 1.5rem;">
+                <div class="guide-item" style="background: #eff6ff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <h3 style="margin-top: 0; color: #1e3a5f;"><i class="fa-solid fa-scale-balanced"></i> Problem: Operating vs. Finance Classification Confusion</h3>
+                    <p><strong>Challenge:</strong> Lease meets one criterion (e.g., lease term = 76% of life) but fails others. Which takes precedence?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> ASC 842 uses an <strong>"any one" test</strong>. If <em>any single criterion</em> is met → Finance Lease. If <em>all five fail</em> → Operating Lease. There's no weighting or judgment—it's binary. Document your classification analysis in a memo for audit trail.</p>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;"><strong>Common Mistake:</strong> Treating the 75%/90% tests as "guidelines" rather than bright-line tests. They're precise thresholds.</p>
+                </div>
+
+                <div class="guide-item" style="background: #eff6ff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <h3 style="margin-top: 0; color: #1e3a5f;"><i class="fa-solid fa-arrows-spin"></i> Problem: Transition from ASC 840 (Modified Retrospective)</h3>
+                    <p><strong>Challenge:</strong> You're transitioning existing leases from ASC 840 to ASC 842. Do you recalculate everything from lease commencement?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> Under <strong>modified retrospective</strong> (most common), you use <strong>remaining lease payments</strong> as of adoption date. Don't go back to original commencement. Use our calculator with: (1) remaining payment amount, (2) remaining term, (3) IBR at adoption date. This is your transition opening balance.</p>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;"><strong>Practical Relief:</strong> For leases classified as operating under ASC 840, you can elect NOT to reassess classification under ASC 842 (keep as operating).</p>
+                </div>
+
+                <div class="guide-item" style="background: #eff6ff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <h3 style="margin-top: 0; color: #1e3a5f;"><i class="fa-solid fa-calendar-days"></i> Problem: Short-Term Lease Exemption (ASC 842 vs. IFRS 16 Difference)</h3>
+                    <p><strong>Challenge:</strong> Under ASC 842, when does the 12-month measurement start? At commencement or from today?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> Measure from <strong>commencement date</strong>, not current date. A lease that started with 18 months remaining but now has 11 months left does <em>not</em> qualify for exemption. Only leases that were ≤12 months at inception qualify. Re-elect exemption at each reporting date based on remaining term.</p>
+                    </div>
+                </div>
+
+                <div class="guide-item" style="background: #eff6ff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <h3 style="margin-top: 0; color: #1e3a5f;"><i class="fa-solid fa-clipboard-check"></i> Problem: Disclosure Requirements (More Extensive Than IFRS 16)</h3>
+                    <p><strong>Challenge:</strong> ASC 842 requires weighted-average discount rate and remaining lease term by lease class. How do you calculate this?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> Group leases by <strong>underlying asset class</strong> (e.g., real estate, vehicles, equipment). For each class, calculate: (1) Weighted-avg remaining lease term = Σ(lease term × lease liability) / Σ(lease liability), (2) Weighted-avg discount rate = Σ(discount rate × lease liability) / Σ(lease liability). Excel formulas: SUMPRODUCT.</p>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;"><strong>Tip:</strong> Maintain a lease register with columns for: Lease ID, Asset Class, Discount Rate, Remaining Term, Lease Liability. Auto-calculate weighted averages.</p>
+                </div>
+
+                <div class="guide-item" style="background: #eff6ff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <h3 style="margin-top: 0; color: #1e3a5f;"><i class="fa-solid fa-money-check-dollar"></i> Problem: Variable Payments Dependent on Index/Rate</h3>
+                    <p><strong>Challenge:</strong> Lease has CPI-linked escalations (e.g., "rent increases annually by CPI, minimum 2%"). How much do you include in lease liability?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> Include in lease liability using <strong>index/rate at commencement date</strong>. Don't forecast future CPI changes. When CPI actually changes, remeasure lease liability. Example: Year 1 rent = $100K. If CPI at commencement = 2%, include $102K for Year 2 in your calculation. When actual CPI = 3%, remeasure using "Add Lease Modification" feature.</p>
+                    </div>
+                </div>
+
+                <div class="guide-item" style="background: #eff6ff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <h3 style="margin-top: 0; color: #1e3a5f;"><i class="fa-solid fa-list"></i> Problem: Land vs. Building (Component Separation)</h3>
+                    <p><strong>Challenge:</strong> Real estate lease includes both land and building. Do you separate them under ASC 842?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> Unlike IFRS 16, ASC 842 does <em>not</em> require automatic separation of land and building. <strong>Exception:</strong> If you can allocate consideration between land/building using observable prices, you <em>may</em> elect to separate (not required). Most US entities treat as single lease unit for simplicity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1.5rem; border-radius: 8px; margin-top: 2rem; border-left: 4px solid #f59e0b;">
+                <h4 style="margin-top: 0; color: #78350f;"><i class="fa-solid fa-flag-usa"></i> ASC 842 vs. IFRS 16: Key Differences for US Accountants</h4>
+                <div style="display: grid; gap: 1rem;">
+                    <div style="background: white; padding: 1rem; border-radius: 6px;">
+                        <p style="margin: 0; color: #78350f; line-height: 1.7;"><strong>1. Expense Recognition:</strong> Operating leases show <em>straight-line expense</em> (rent expense). Finance leases show <em>interest + amortization</em> (front-loaded). IFRS 16 treats all leases like finance leases (no "operating" classification).</p>
+                    </div>
+                    <div style="background: white; padding: 1rem; border-radius: 6px;">
+                        <p style="margin: 0; color: #78350f; line-height: 1.7;"><strong>2. Balance Sheet Presentation:</strong> ASC 842 requires <em>separate line items</em> for operating vs. finance lease ROU assets/liabilities. IFRS 16 allows combined presentation.</p>
+                    </div>
+                    <div style="background: white; padding: 1rem; border-radius: 6px;">
+                        <p style="margin: 0; color: #78350f; line-height: 1.7;"><strong>3. Cash Flow Statement:</strong> Operating lease payments → Operating Activities. Finance lease: principal → Financing, interest → Operating. IFRS 16 allows choice of classification.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Calculator Section -->
         <section id="calculator" class="dashboard-grid">
 
