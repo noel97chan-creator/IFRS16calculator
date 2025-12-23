@@ -9,7 +9,7 @@
     <meta name="description"
         content="Free IFRS 16 lease calculator tool for IFRS 16 leases, SFRS 16 & MFRS 16 compliance. Calculate ROU assets & lease liabilities with audit-ready Excel export. No signup required.">
     <meta name="keywords"
-        content="IFRS 16 calculator, free IFRS 16 software, lease liability calculator, ROU asset calculator, how to calculate lease liability, lease modification calculator, SFRS 16, MFRS 16, lease amortization schedule, Singapore lease accounting, Malaysia lease accounting, Excel alternative IFRS 16, audit-ready lease calculation, present value lease calculator, right of use asset calculator">
+        content="lease calculator, business lease calculator, accounting lease calculator, IFRS 16 calculator, free IFRS 16 software, lease liability calculator, ROU asset calculator, how to calculate lease liability, lease modification calculator, SFRS 16, MFRS 16, lease amortization schedule, Singapore lease accounting, Malaysia lease accounting, Excel alternative IFRS 16, audit-ready lease calculation, present value lease calculator, right of use asset calculator, equipment lease calculator accounting">
     <meta name="author" content="IFRS16 Calculator">
     <meta name="geo.region" content="SG">
     <meta name="geo.region" content="MY">
@@ -231,6 +231,30 @@
         },
         {
           "@type": "Question",
+          "name": "What's the difference between a car lease calculator and a business lease calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A car lease calculator (like Edmunds or KBB) helps consumers estimate monthly auto payment amounts based on MSRP, residual value, and money factor when leasing a vehicle for personal use. A business lease calculator (like ours) helps accountants and finance professionals comply with IFRS 16 / ASC 842 financial reporting standards by calculating lease liability (present value of future payments), Right-of-Use (ROU) Asset, amortization schedules for balance sheet recognition, and interest expense and principal reduction tracking."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this calculator for equipment leases or property leases?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! Our IFRS 16 lease calculator works for any operating or finance lease that requires balance sheet recognition under IFRS 16, SFRS 16, MFRS 16, or ASC 842, including real estate (office space, retail stores, warehouses, manufacturing facilities), equipment (machinery, computers, servers, medical equipment, construction equipment), vehicles (fleet accounting), and technology (software licenses, data center space). As long as you have the lease payment amount, term, and interest rate (IBR), our calculator will generate the compliant amortization schedule."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this calculator for ASC 842 or IFRS 16?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both! While our calculator is primarily designed for IFRS 16 (and its regional equivalents SFRS 16 in Singapore and MFRS 16 in Malaysia), the calculation methodology for lease liability and ROU asset is nearly identical under ASC 842 (US GAAP). Key similarities include present value calculation using IBR or implicit rate, Right-of-Use asset recognition, and effective interest method for amortization. Minor differences: ASC 842 has different classification tests (operating vs. finance lease) and expense recognition patterns. Our calculator handles the liability calculation which is consistent across both standards."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Is this tool free to use?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -435,6 +459,42 @@
                 <a href="#guide" class="btn-secondary">Read the Guide</a>
             </div>
         </header>
+
+        <!-- What Type of Lease Calculator Section -->
+        <section class="card content-card" id="calculator-types" style="margin-bottom: 2rem;">
+            <h2><i class="fa-solid fa-circle-question"></i> What Type of Lease Calculator Do You Need?</h2>
+            <p style="margin-bottom: 1.5rem; color: #666;">Not all lease calculators are the same. Choose the right tool for your needs:</p>
+
+            <div class="guide-grid" style="gap: 1.5rem;">
+                <div class="guide-item" style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #94a3b8;">
+                    <h3 style="margin-top: 0;"><i class="fa-solid fa-car"></i> Auto/Car Lease Calculator</h3>
+                    <p><strong>For consumers:</strong> Estimate monthly car payments, residual values, and money factors when leasing a vehicle.</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Popular options:</strong></p>
+                    <ul style="margin-bottom: 1rem;">
+                        <li>Edmunds Car Lease Calculator</li>
+                        <li>Kelley Blue Book (KBB)</li>
+                        <li>Bankrate Auto Lease Calculator</li>
+                    </ul>
+                    <p style="font-size: 0.95rem; color: #666;"><em>→ If you're shopping for a car, those tools are what you need.</em></p>
+                </div>
+
+                <div class="guide-item" style="background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8e 100%); padding: 1.5rem; border-radius: 8px; color: white; border: 3px solid #3b82f6;">
+                    <h3 style="margin-top: 0; color: white;"><i class="fa-solid fa-file-invoice-dollar"></i> Business Lease Calculator (IFRS 16 / ASC 842)</h3>
+                    <p><strong>For accountants, auditors & finance professionals:</strong> Calculate lease liability, right-of-use (ROU) assets, and generate audit-ready amortization schedules for financial reporting compliance.</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Use cases:</strong></p>
+                    <ul style="margin-bottom: 1rem;">
+                        <li>Office space & real estate leases</li>
+                        <li>Equipment & machinery leases</li>
+                        <li>Fleet vehicle accounting (not consumer car leasing)</li>
+                        <li>IFRS 16, SFRS 16, MFRS 16, ASC 842 compliance</li>
+                    </ul>
+                    <div style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <p style="margin: 0; font-weight: 600; font-size: 1.05rem;">✓ This is what our calculator does</p>
+                        <a href="#calculator" class="btn-primary" style="margin-top: 0.75rem; display: inline-block; background: white; color: #1e3a5f;">Use IFRS 16 Calculator →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Calculator Section -->
         <section id="calculator" class="dashboard-grid">
@@ -678,6 +738,49 @@
                         <span class="badge-label">International</span>
                         <span class="badge-value">IFRS 16</span>
                     </div>
+                </div>
+            </div>
+
+            <!-- What is a Lease Calculator Section (Featured Snippet Optimized) -->
+            <div class="guide-intro" style="margin-top: 2rem; background: #f8fafc; padding: 1.5rem; border-left: 4px solid #3b82f6; border-radius: 8px;">
+                <h3 style="margin-top: 0;"><i class="fa-solid fa-circle-info"></i> What is a Lease Calculator?</h3>
+                <p>A <strong>lease calculator</strong> is a financial tool that computes the present value of lease payments and generates amortization schedules. There are two main types:</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                    <div style="background: white; padding: 1rem; border-radius: 6px;">
+                        <h4 style="margin-top: 0; color: #64748b; font-size: 0.95rem;">Consumer Lease Calculator</h4>
+                        <p style="font-size: 0.9rem; margin: 0;">Calculates monthly auto lease payments for car shoppers (e.g., Edmunds, KBB).</p>
+                    </div>
+                    <div style="background: white; padding: 1rem; border-radius: 6px; border: 2px solid #3b82f6;">
+                        <h4 style="margin-top: 0; color: #1e3a5f; font-size: 0.95rem;">Accounting Lease Calculator (This Tool)</h4>
+                        <p style="font-size: 0.9rem; margin: 0;">Calculates lease liabilities and ROU assets for IFRS 16 / ASC 842 financial reporting compliance.</p>
+                    </div>
+                </div>
+
+                <h4><i class="fa-solid fa-calculator"></i> How Does an IFRS 16 Lease Calculator Work?</h4>
+                <p>An <strong>IFRS 16 lease calculator</strong> uses the following inputs to generate compliant financial reporting schedules:</p>
+                <ol style="margin: 1rem 0;">
+                    <li><strong>Lease Payment Amount:</strong> The periodic payment (monthly, quarterly, or annual)</li>
+                    <li><strong>Lease Term:</strong> Total number of payment periods</li>
+                    <li><strong>Interest Rate (IBR):</strong> The incremental borrowing rate or rate implicit in the lease</li>
+                    <li><strong>Payment Timing:</strong> Whether payments are made at the start (Annuity Due) or end (Ordinary Annuity) of each period</li>
+                </ol>
+
+                <p style="margin: 1rem 0;"><strong>The calculator then computes:</strong></p>
+                <ul style="margin: 1rem 0;">
+                    <li>Initial Lease Liability (present value of all future payments)</li>
+                    <li>Right-of-Use Asset value</li>
+                    <li>Period-by-period amortization schedule showing:</li>
+                    <ul style="margin-left: 1.5rem;">
+                        <li>Opening balance</li>
+                        <li>Interest expense (calculated using the effective interest method)</li>
+                        <li>Principal reduction</li>
+                        <li>Closing balance</li>
+                    </ul>
+                </ul>
+
+                <div style="background: #dbeafe; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                    <p style="margin: 0; font-size: 0.95rem;"><strong>💡 Key Benefit:</strong> Unlike manual Excel spreadsheets, our lease calculator automatically handles complex present value calculations, supports lease modifications, and generates audit-ready Excel exports—saving accountants hours of work.</p>
                 </div>
             </div>
 
@@ -1078,6 +1181,54 @@
                                 target="_blank" rel="noopener">IRAS E-Tax Guide</a> for detailed treatment.</p>
                         <p>See our <a href="#deferred-tax">Deferred Tax Implications section</a> for a comprehensive
                             explanation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h4><i class="fa-solid fa-q"></i> What's the difference between a car lease calculator and a business lease calculator?</h4>
+                    <div class="faq-answer">
+                        <p>A <strong>car lease calculator</strong> (like Edmunds or KBB) helps <em>consumers</em> estimate <strong>monthly auto payment amounts</strong> based on MSRP, residual value, and money factor when leasing a vehicle for personal use.</p>
+                        <p>A <strong>business lease calculator</strong> (like ours) helps <em>accountants and finance professionals</em> comply with <strong>IFRS 16 / ASC 842</strong> financial reporting standards by calculating:</p>
+                        <ul>
+                            <li>Lease Liability (present value of future payments)</li>
+                            <li>Right-of-Use (ROU) Asset</li>
+                            <li>Amortization schedules for balance sheet recognition</li>
+                            <li>Interest expense and principal reduction tracking</li>
+                        </ul>
+                        <div class="faq-tip">
+                            <i class="fa-solid fa-lightbulb"></i> <strong>Quick Guide:</strong> Shopping for a car? Use Edmunds. Preparing financial statements? Use our IFRS 16 calculator.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h4><i class="fa-solid fa-q"></i> Can I use this calculator for equipment leases or property leases?</h4>
+                    <div class="faq-answer">
+                        <p><strong>Absolutely!</strong> Our IFRS 16 lease calculator works for <strong>any operating or finance lease</strong> that requires balance sheet recognition under IFRS 16, SFRS 16, MFRS 16, or ASC 842, including:</p>
+                        <ul>
+                            <li><strong>Real estate:</strong> Office space, retail stores, warehouses, manufacturing facilities</li>
+                            <li><strong>Equipment:</strong> Machinery, computers, servers, medical equipment, construction equipment</li>
+                            <li><strong>Vehicles:</strong> Fleet accounting (not consumer car leasing—see previous question)</li>
+                            <li><strong>Technology:</strong> Software licenses, data center space</li>
+                        </ul>
+                        <p>As long as you have the <strong>lease payment amount, term, and interest rate (IBR)</strong>, our calculator will generate the compliant amortization schedule.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h4><i class="fa-solid fa-q"></i> Is this calculator for ASC 842 or IFRS 16?</h4>
+                    <div class="faq-answer">
+                        <p><strong>Both!</strong> While our calculator is primarily designed for <strong>IFRS 16</strong> (and its regional equivalents SFRS 16 in Singapore and MFRS 16 in Malaysia), the <strong>calculation methodology</strong> for lease liability and ROU asset is nearly identical under <strong>ASC 842</strong> (US GAAP).</p>
+                        <p><strong>Key similarities:</strong></p>
+                        <ul>
+                            <li>Present value calculation using IBR or implicit rate</li>
+                            <li>Right-of-Use asset recognition</li>
+                            <li>Effective interest method for amortization</li>
+                        </ul>
+                        <p><strong>Minor differences:</strong> ASC 842 has different classification tests (operating vs. finance lease) and expense recognition patterns. Our calculator handles the <em>liability calculation</em> which is consistent across both standards.</p>
+                        <div class="faq-tip">
+                            <i class="fa-solid fa-lightbulb"></i> <strong>Note:</strong> For US entities under ASC 842, verify your lease classification first, then use our calculator for the liability computation.
+                        </div>
                     </div>
                 </div>
 
