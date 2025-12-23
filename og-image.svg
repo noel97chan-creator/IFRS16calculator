@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1e3a5f"/>
+
+  <!-- Decorative elements -->
+  <circle cx="100" cy="100" r="150" fill="#2d4a6f" opacity="0.5"/>
+  <circle cx="1100" cy="530" r="200" fill="#2d4a6f" opacity="0.5"/>
+
+  <!-- Calculator icon -->
+  <rect x="500" y="150" width="200" height="250" rx="20" fill="#3d5a7f"/>
+  <rect x="520" y="170" width="160" height="60" rx="8" fill="#1e3a5f"/>
+  <text x="600" y="215" font-family="Arial" font-size="28" fill="#4ade80" text-anchor="middle">$169,420</text>
+
+  <!-- Calculator buttons -->
+  <rect x="520" y="250" width="45" height="35" rx="5" fill="#4a6a8f"/>
+  <rect x="577" y="250" width="45" height="35" rx="5" fill="#4a6a8f"/>
+  <rect x="635" y="250" width="45" height="35" rx="5" fill="#4a6a8f"/>
+  <rect x="520" y="295" width="45" height="35" rx="5" fill="#4a6a8f"/>
+  <rect x="577" y="295" width="45" height="35" rx="5" fill="#4a6a8f"/>
+  <rect x="635" y="295" width="45" height="35" rx="5" fill="#4a6a8f"/>
+  <rect x="520" y="340" width="45" height="35" rx="5" fill="#4a6a8f"/>
+  <rect x="577" y="340" width="45" height="35" rx="5" fill="#4a6a8f"/>
+  <rect x="635" y="340" width="45" height="35" rx="5" fill="#4ade80"/>
+
+  <!-- Title -->
+  <text x="600" y="480" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">IFRS 16 Lease Calculator</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="530" font-family="Arial, sans-serif" font-size="24" fill="#a0aec0" text-anchor="middle">Free Professional Tool for Accountants &amp; Auditors</text>
+
+  <!-- Badges -->
+  <rect x="380" y="560" width="120" height="30" rx="15" fill="#4ade80"/>
+  <text x="440" y="581" font-family="Arial" font-size="14" fill="#1e3a5f" text-anchor="middle" font-weight="bold">SFRS 16</text>
+
+  <rect x="520" y="560" width="120" height="30" rx="15" fill="#4ade80"/>
+  <text x="580" y="581" font-family="Arial" font-size="14" fill="#1e3a5f" text-anchor="middle" font-weight="bold">MFRS 16</text>
+
+  <rect x="660" y="560" width="120" height="30" rx="15" fill="#4ade80"/>
+  <text x="720" y="581" font-family="Arial" font-size="14" fill="#1e3a5f" text-anchor="middle" font-weight="bold">IFRS 16</text>
+</svg>
