@@ -5,7 +5,7 @@
 // ============================================
 
 // Global variable to hold table data for export
-let scheduleData = []; 
+let scheduleData = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeEventListeners();
@@ -15,32 +15,75 @@ function initializeEventListeners() {
     // Calculate Button
     const calcBtn = document.getElementById('calculateBtn');
     if (calcBtn) calcBtn.addEventListener('click', calculateSchedule);
-    
+
     // Load Example Button
     const exampleBtn = document.getElementById('loadExampleBtn');
     if (exampleBtn) exampleBtn.addEventListener('click', loadExampleValues);
-    
+
     // Email Gate Form
     const emailForm = document.getElementById('emailForm');
     if (emailForm) emailForm.addEventListener('submit', unlockDownload);
-    
+
     // Download CSV Button
     const downloadBtn = document.getElementById('downloadBtn');
     if (downloadBtn) downloadBtn.addEventListener('click', exportToCSV);
-    
+
     // Print Button
     const printBtn = document.getElementById('printBtn');
     if (printBtn) printBtn.addEventListener('click', () => window.print());
-    
+
     // Mobile Menu Toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
     if (mobileMenuBtn && navLinks) {
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('mobile-open');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('mobile-open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
         });
     }
-    
+
+    // Cookie Banner Logic
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
+
+    if (!localStorage.getItem('cookieConsent')) {
+        // Show banner after a short delay
+        setTimeout(() => {
+            cookieBanner.classList.remove('hidden');
+        }, 1000);
+    }
+
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'true');
+            cookieBanner.classList.add('hidden');
+        });
+    }
+
+    // Modification Toggle
+    const toggleModBtn = document.getElementById('toggleModBtn');
+    const modPanel = document.getElementById('modificationPanel');
+    if (toggleModBtn && modPanel) {
+        toggleModBtn.addEventListener('click', () => {
+            modPanel.classList.toggle('hidden');
+            const isHidden = modPanel.classList.contains('hidden');
+            toggleModBtn.innerHTML = isHidden
+                ? '<i class="fa-solid fa-plus-circle"></i> Add Lease Modification / Reassessment'
+                : '<i class="fa-solid fa-minus-circle"></i> Remove Modification';
+
+            if (isHidden) {
+                clearModificationInputs();
+            }
+        });
+    }
+
     // Real-time input validation
     const inputs = ['payment', 'term', 'rate'];
     inputs.forEach(id => {
@@ -50,7 +93,7 @@ function initializeEventListeners() {
             input.addEventListener('blur', () => validateField(id));
         }
     });
-    
+
     // Enter key support
     document.querySelectorAll('.input-card input').forEach(input => {
         input.addEventListener('keypress', (e) => {
@@ -71,16 +114,16 @@ function loadExampleValues() {
     document.getElementById('term').value = '36';
     document.getElementById('rate').value = '4.5';
     document.getElementById('timing').value = 'end';
-    
+
     clearAllErrors();
-    
+
     // Visual feedback
     const btn = document.getElementById('loadExampleBtn');
     const originalText = btn.innerHTML;
     btn.innerHTML = '<i class="fa-solid fa-check"></i> Loaded!';
     btn.style.color = 'var(--success)';
     btn.style.borderColor = 'var(--success)';
-    
+
     setTimeout(() => {
         btn.innerHTML = originalText;
         btn.style.color = '';
@@ -97,10 +140,10 @@ function validateField(fieldId) {
     const value = parseFloat(input.value);
     const errorEl = document.getElementById(`${fieldId}-error`);
     const group = input.closest('.input-group');
-    
+
     let isValid = true;
     let errorMessage = '';
-    
+
     switch (fieldId) {
         case 'payment':
             if (isNaN(value) || value <= 0) {
@@ -127,7 +170,7 @@ function validateField(fieldId) {
             }
             break;
     }
-    
+
     if (!isValid) {
         group.classList.add('error');
         if (errorEl) errorEl.textContent = errorMessage;
@@ -135,7 +178,7 @@ function validateField(fieldId) {
         group.classList.remove('error');
         if (errorEl) errorEl.textContent = '';
     }
-    
+
     return isValid;
 }
 
@@ -143,7 +186,7 @@ function clearError(fieldId) {
     const input = document.getElementById(fieldId);
     const errorEl = document.getElementById(`${fieldId}-error`);
     const group = input.closest('.input-group');
-    
+
     group.classList.remove('error');
     if (errorEl) errorEl.textContent = '';
 }
@@ -155,13 +198,13 @@ function clearAllErrors() {
 function validateAllFields() {
     const fields = ['payment', 'term', 'rate'];
     let allValid = true;
-    
+
     fields.forEach(field => {
         if (!validateField(field)) {
             allValid = false;
         }
     });
-    
+
     return allValid;
 }
 
@@ -177,7 +220,7 @@ function calculateSchedule() {
         }
         return;
     }
-    
+
     const payment = parseFloat(document.getElementById('payment').value);
     const termPeriods = parseInt(document.getElementById('term').value);
     const rateAnnual = parseFloat(document.getElementById('rate').value);
@@ -204,9 +247,9 @@ function calculateSchedule() {
     const tbody = document.querySelector('#schedule-table tbody');
     tbody.innerHTML = "";
     scheduleData = [];
-    
+
     scheduleData.push([
-        "Period", "Opening Balance", "Payment", "Interest Expense", 
+        "Period", "Opening Balance", "Payment", "Interest Expense",
         "Principal Reduction", "Closing Balance", "ROU Depreciation"
     ]);
 
@@ -264,6 +307,160 @@ function calculateSchedule() {
         openingBalance = closingBalance;
     }
 
+    // handle modification
+    const modPanel = document.getElementById('modificationPanel');
+    if (modPanel && !modPanel.classList.contains('hidden')) {
+        const modPeriod = parseInt(document.getElementById('modPeriod').value);
+
+        // Edge Case Validation: Mod period must be inside the lease term
+        if (modPeriod > termPeriods) {
+            showToast(`Modification period (${modPeriod}) cannot be after lease end (${termPeriods})`, 'error');
+            return;
+        }
+
+        if (modPeriod && modPeriod > 1 && modPeriod <= termPeriods) {
+            // Apply modification logic
+            // 1. Identify Balance at Mod Date
+            // We need to re-calculate from the mod period onwards
+
+            // This requires a more complex loop structure or a two-stage calc.
+            // For simplicity in this version, we will re-run the loop logic with a check inside.
+            // Actually, best to truncate the array at modPeriod-1 and start a new schedule.
+
+            // Let's implement a robust way:
+            // Splicing the existing scheduleData is feasible.
+
+            // Get opening balance of the mod period from the freshly generated data
+            // array index is period-1.
+            // So for period 13, index is 12.
+            const preModRow = scheduleData[modPeriod - 1]; // Wait, scheduleData handles headers at index 0?
+            // scheduleData[0] is headers.
+            // scheduleData[1] is Period 1.
+            // scheduleData[modPeriod] is Period [modPeriod] (before modification logic applied).
+
+            // Actually, real-world mod accounting:
+            // ROU and Liability are re-measured.
+            // We take the Liability Opening Balance at Mod Date.
+            // We calculate NEW PV based on New Rent + New Term + New Rate.
+            // The difference acts as an adjustment to ROU.
+
+            // Let's grab the inputs
+            const newPayment = document.getElementById('modPayment').value ? parseFloat(document.getElementById('modPayment').value) : payment;
+            const newTermRemaining = document.getElementById('modTerm').value ? parseInt(document.getElementById('modTerm').value) : (termPeriods - modPeriod + 1);
+            const newRate = document.getElementById('modRate').value ? parseFloat(document.getElementById('modRate').value) : rateAnnual;
+
+            const newPeriodicRate = (newRate / 100) / 12;
+
+            // Cut the schedule at modPeriod - 1
+            // (Keep lines 1 to modPeriod-1)
+            // Remove lines from modPeriod onwards from HTML and Data
+
+            // Remove rows from HTML
+            const rows = tbody.querySelectorAll('tr');
+            for (let k = rows.length; k >= modPeriod; k--) {
+                if (rows[k - 1]) rows[k - 1].remove();
+            }
+
+            // Truncate Data (keep header + periods before mod)
+            scheduleData = scheduleData.slice(0, modPeriod);
+
+            // Recalculate totals for the first part
+            totalInterest = 0; totalPayment = 0; totalPrincipal = 0; totalDepreciation = 0;
+            for (let k = 1; k < scheduleData.length; k++) {
+                totalInterest += parseFloat(scheduleData[k][3]);
+                totalPayment += parseFloat(scheduleData[k][2]);
+                totalPrincipal += parseFloat(scheduleData[k][4]);
+                totalDepreciation += parseFloat(scheduleData[k][6]);
+            }
+
+            // New Calculation
+            // Opening Balance for New Schedule is the Liability Balance at end of (modPeriod - 1)
+            let newOpeningBalance = parseFloat(scheduleData[scheduleData.length - 1][5].replace(/,/g, '')); // Closing balance of last kept period
+
+            // Calculate NEW Liability PV
+            let newPV = 0;
+            if (newPeriodicRate === 0) {
+                newPV = newPayment * newTermRemaining;
+            } else {
+                newPV = newPayment * ((1 - Math.pow(1 + newPeriodicRate, -newTermRemaining)) / newPeriodicRate);
+                if (timing === 'start') {
+                    newPV = newPV * (1 + newPeriodicRate);
+                }
+            }
+
+            // Adjustment
+            const adjustment = newPV - newOpeningBalance; // Increase/Decrease in Liability
+            // In a full accounting system, we'd adjust the ROU asset by this amount.
+            // The depreciation then changes.
+
+            // New Asset Value = Old Asset Carrying Amount + Adjustment
+            // We need Old Asset Carrying Amount.
+            // Original Asset = initialAssetValue.
+            // Accumulated Dep = periodicAmortization * (modPeriod - 1).
+            const oldAssetCarrying = initialAssetValue - (periodicAmortization * (modPeriod - 1));
+            const newAssetValue = oldAssetCarrying + adjustment;
+            const newPeriodicDepreciation = newAssetValue / newTermRemaining;
+
+            // Insert "Modification" separator row
+            const modRow = document.createElement('tr');
+            modRow.className = "modification-row";
+            modRow.innerHTML = `<td colspan="7" style="background:#fff3cd; text-align:center; font-weight:bold;">Modification Event at Period ${modPeriod}: Re-measurement (Start Balance: ${formatMoney(newOpeningBalance)} &#8594; ${formatMoney(newPV)})</td>`;
+            tbody.appendChild(modRow);
+
+            scheduleData.push(["---", `MODIFICATION: ADJ ${adjustment.toFixed(2)}`, "", "", "", "", ""]);
+
+            // New Loop
+            let currentBalance = newPV;
+
+            for (let j = 1; j <= newTermRemaining; j++) {
+                const currentPeriodLabel = (modPeriod - 1) + j;
+
+                let interestExpense = 0;
+                let principalReduction = 0;
+                let closingBalance = 0;
+                let currentPaymentVal = newPayment;
+
+                if (timing === 'end') {
+                    interestExpense = currentBalance * newPeriodicRate;
+                    principalReduction = currentPaymentVal - interestExpense;
+                    closingBalance = currentBalance - principalReduction;
+                } else {
+                    interestExpense = (currentBalance - currentPaymentVal) * newPeriodicRate;
+                    if (interestExpense < 0) interestExpense = 0;
+                    principalReduction = currentPaymentVal - interestExpense;
+                    closingBalance = currentBalance - principalReduction;
+                }
+
+                if (j === newTermRemaining && Math.abs(closingBalance) < 1.0) closingBalance = 0;
+
+                totalInterest += interestExpense;
+                totalPayment += currentPaymentVal;
+                totalPrincipal += principalReduction;
+                totalDepreciation += newPeriodicDepreciation;
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${currentPeriodLabel} <span style="color:var(--info); font-size:0.75em;">(New)</span></td>
+                    <td>${formatMoney(currentBalance)}</td>
+                    <td>${formatMoney(currentPaymentVal)}</td>
+                    <td class="highlight-col">${formatMoney(interestExpense)}</td>
+                    <td>${formatMoney(principalReduction)}</td>
+                    <td>${formatMoney(closingBalance)}</td>
+                    <td>${formatMoney(newPeriodicDepreciation)}</td>
+                `;
+                tbody.appendChild(row);
+
+                scheduleData.push([
+                    currentPeriodLabel, currentBalance.toFixed(2), currentPaymentVal.toFixed(2),
+                    interestExpense.toFixed(2), principalReduction.toFixed(2),
+                    closingBalance.toFixed(2), newPeriodicDepreciation.toFixed(2)
+                ]);
+
+                currentBalance = closingBalance;
+            }
+        }
+    }
+
     scheduleData.push([
         "TOTAL", "", totalPayment.toFixed(2), totalInterest.toFixed(2),
         totalPrincipal.toFixed(2), "", totalDepreciation.toFixed(2)
@@ -272,10 +469,10 @@ function calculateSchedule() {
     // Update Summary
     const summaryPanel = document.getElementById('summary-panel');
     const placeholder = document.getElementById('summary-placeholder');
-    
+
     if (placeholder) placeholder.classList.add('hidden');
     summaryPanel.classList.remove('hidden');
-    
+
     animateValue(document.getElementById('sum-liability'), presentValue);
     animateValue(document.getElementById('sum-asset'), initialAssetValue);
     animateValue(document.getElementById('sum-dep'), periodicAmortization);
@@ -291,15 +488,15 @@ function calculateSchedule() {
     // Show Results
     const resultsSection = document.getElementById('results-section');
     resultsSection.classList.remove('hidden');
-    
+
     const downloadBtn = document.getElementById('downloadBtn');
     const printBtn = document.getElementById('printBtn');
-    
+
     if (downloadBtn.classList.contains('hidden')) {
         document.getElementById('gate-container').classList.remove('hidden');
     }
     if (printBtn) printBtn.classList.remove('hidden');
-    
+
     setTimeout(() => {
         resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
@@ -325,28 +522,28 @@ function unlockDownload(e) {
         body: formData,
         headers: { 'Accept': 'application/json' }
     })
-    .then(response => {
-        if (response.ok) {
-            document.getElementById('gate-container').classList.add('hidden');
-            document.getElementById('downloadBtn').classList.remove('hidden');
-            setTimeout(exportToCSV, 500);
-            
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'generate_lead', {
-                    'event_category': 'engagement',
-                    'event_label': 'csv_unlock'
-                });
+        .then(response => {
+            if (response.ok) {
+                document.getElementById('gate-container').classList.add('hidden');
+                document.getElementById('downloadBtn').classList.remove('hidden');
+                setTimeout(exportToCSV, 500);
+
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'generate_lead', {
+                        'event_category': 'engagement',
+                        'event_label': 'csv_unlock'
+                    });
+                }
+            } else {
+                throw new Error('Submission failed');
             }
-        } else {
-            throw new Error('Submission failed');
-        }
-    })
-    .catch(error => {
-        console.error('Form submission error:', error);
-        submitButton.disabled = false;
-        submitButton.innerHTML = originalBtnText;
-        showToast('Something went wrong. Please try again.', 'error');
-    });
+        })
+        .catch(error => {
+            console.error('Form submission error:', error);
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalBtnText;
+            showToast('Something went wrong. Please try again.', 'error');
+        });
 }
 
 // ============================================
@@ -358,9 +555,9 @@ function exportToCSV() {
         showToast('Please generate a schedule first.', 'warning');
         return;
     }
-    
+
     let csvContent = "";
-    
+
     scheduleData.forEach(row => {
         const escapedRow = row.map(cell => {
             const cellStr = String(cell);
@@ -375,24 +572,24 @@ function exportToCSV() {
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
-    
+
     const timestamp = new Date().toISOString().slice(0, 10);
     link.setAttribute("href", url);
     link.setAttribute("download", `IFRS16_Amortization_Schedule_${timestamp}.csv`);
     link.style.visibility = 'hidden';
-    
+
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
-    
+
     if (typeof gtag !== 'undefined') {
         gtag('event', 'file_download', {
             'event_category': 'engagement',
             'event_label': 'csv_download'
         });
     }
-    
+
     showToast('Schedule downloaded successfully!', 'success');
 }
 
@@ -401,53 +598,58 @@ function exportToCSV() {
 // ============================================
 
 function formatMoney(num) {
-    return num.toLocaleString('en-US', { 
-        style: 'currency', 
-        currency: 'USD', 
-        minimumFractionDigits: 2, 
-        maximumFractionDigits: 2 
+    return num.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
     });
 }
 
 function animateValue(element, endValue, duration = 800) {
     if (!element) return;
-    
+
     const startTime = performance.now();
-    
+
     const animate = (currentTime) => {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
         const easeProgress = 1 - Math.pow(1 - progress, 3);
         const currentValue = endValue * easeProgress;
-        
+
         element.textContent = formatMoney(currentValue);
-        
+
         if (progress < 1) {
             requestAnimationFrame(animate);
         } else {
             element.textContent = formatMoney(endValue);
         }
     };
-    
+
     requestAnimationFrame(animate);
+}
+
+function clearModificationInputs() {
+    const inputs = document.querySelectorAll('#modificationPanel input');
+    inputs.forEach(input => input.value = '');
 }
 
 function showToast(message, type = 'info') {
     const existingToast = document.querySelector('.toast');
     if (existingToast) existingToast.remove();
-    
+
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
-    
+
     const iconMap = {
         success: 'fa-check-circle',
         error: 'fa-exclamation-circle',
         warning: 'fa-exclamation-triangle',
         info: 'fa-info-circle'
     };
-    
+
     toast.innerHTML = `<i class="fa-solid ${iconMap[type]}"></i><span>${message}</span>`;
-    
+
     if (!document.getElementById('toast-styles')) {
         const style = document.createElement('style');
         style.id = 'toast-styles';
@@ -483,7 +685,7 @@ function showToast(message, type = 'info') {
         `;
         document.head.appendChild(style);
     }
-    
+
     document.body.appendChild(toast);
     setTimeout(() => toast.remove(), 3000);
 }
