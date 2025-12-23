@@ -882,81 +882,170 @@
 
             <div class="guide-grid">
                 <article class="guide-item">
-                    <h3><i class="fa-solid fa-scale-balanced"></i> The Core Change: On-Balance Sheet Recognition</h3>
-                    <p>Before IFRS 16, operating leases were kept "off-balance sheet"—only disclosed in footnotes. Under
-                        the new standard, <strong>almost all leases must now appear on the balance sheet</strong> as:
-                    </p>
+                    <h3><i class="fa-solid fa-industry"></i> Equipment Leases Under IFRS 16</h3>
+                    <p>Equipment leases—from manufacturing machinery to medical devices—now require <strong>on-balance
+                        sheet recognition</strong> for lessees. This applies to:</p>
                     <ul>
-                        <li><strong>Right-of-Use (ROU) Asset:</strong> Representing the lessee's right to use the leased
-                            asset over the lease term</li>
-                        <li><strong>Lease Liability:</strong> The present value of future lease payments the lessee is
-                            obligated to make</li>
+                        <li><strong>Manufacturing Equipment:</strong> CNC machines, 3D printers, industrial robots</li>
+                        <li><strong>Construction Equipment:</strong> Excavators, cranes, bulldozers</li>
+                        <li><strong>Medical Equipment:</strong> MRI scanners, CT machines, surgical robots</li>
+                        <li><strong>IT Hardware:</strong> Servers, computers, networking equipment</li>
+                        <li><strong>Office Equipment:</strong> Copiers, printers, phone systems</li>
                     </ul>
-                    <p>This brings greater transparency to financial statements and allows investors to better assess a
-                        company's true financial obligations.</p>
+                    <p>Each equipment lease creates two balance sheet items: a <strong>Right-of-Use (ROU) Asset</strong>
+                        and a <strong>Lease Liability</strong>, regardless of whether it's an "operating" or "finance"
+                        lease under old rules.</p>
                 </article>
 
                 <article class="guide-item">
-                    <h3><i class="fa-solid fa-calculator"></i> How Lease Liability is Calculated</h3>
-                    <p>The initial lease liability equals the <strong>present value of lease payments</strong> not yet
-                        paid at the commencement date. The discount rate used is typically:</p>
+                    <h3><i class="fa-solid fa-microchip"></i> Equipment-Specific Depreciation Considerations</h3>
+                    <p>Unlike property leases, equipment depreciation requires careful assessment of <strong>technological
+                        obsolescence</strong> and <strong>asset-specific useful life</strong>:</p>
+
+                    <div style="background: #fff3cd; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                        <p style="margin: 0;"><strong>⚡ Technology Equipment (IT, Medical Imaging):</strong></p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem;">Depreciate ROU asset over <strong>shorter of
+                            lease term or 3-5 years</strong> due to rapid obsolescence. Example: A 5-year server lease should
+                            be depreciated over 3-4 years maximum.</p>
+                    </div>
+
+                    <div style="background: #d1ecf1; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                        <p style="margin: 0;"><strong>🏗️ Heavy Machinery (Manufacturing, Construction):</strong></p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem;">Depreciate ROU asset over <strong>lease term</strong>
+                            (typically 5-10 years for industrial equipment). Useful life often exceeds lease term.</p>
+                    </div>
+
+                    <div style="background: #f8d7da; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                        <p style="margin: 0;"><strong>🍽️ Restaurant & Hospitality Equipment:</strong></p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem;">Depreciate over <strong>lease term or 7-10 years</strong>.
+                            Ovens, refrigeration units, and POS systems have moderate obsolescence.</p>
+                    </div>
+
+                    <p style="margin-top: 1rem;"><strong>Key Rule:</strong> Depreciate the ROU asset over the <strong>shorter of:</strong></p>
                     <ol>
-                        <li><strong>Interest rate implicit in the lease</strong> (if readily determinable), or</li>
-                        <li><strong>Lessee's incremental borrowing rate</strong> (the rate at which the lessee could
-                            borrow a similar amount for a similar term)</li>
+                        <li>The lease term, or</li>
+                        <li>The equipment's useful life (considering obsolescence)</li>
                     </ol>
-                    <div class="guide-item">
-                        <h3><i class="fa-solid fa-pen-to-square"></i> Lease Modifications & Remeasurement</h3>
-                        <p>Standard IFRS 16 accounting changes when the terms of a lease change (e.g., rent increases,
-                            term extensions, or space reduction). This is called a <strong>Lease Modification</strong>.
-                        </p>
-                        <p>When a modification occurs, you must:</p>
-                        <ol>
-                            <li><strong>Remeasure the Lease Liability:</strong> Discount the <em>new</em> future
-                                payments using a <em>revised</em> discount rate at the modification date.</li>
-                            <li><strong>Adjust the ROU Asset:</strong> The difference between the old and new liability
-                                is adjusted against the Right-of-Use Asset.</li>
-                        </ol>
-                        <div class="faq-tip" style="margin-top: 1rem;">
-                            <i class="fa-solid fa-lightbulb"></i>
-                            <span><strong>Pro Tip:</strong> Use our "Add Lease Modification" tool above to handle this
-                                automatically. Simply enter the period the change takes effect, and we'll calculate the
-                                adjustment for you.</span>
-                        </div>
+                </article>
+
+                <article class="guide-item">
+                    <h3><i class="fa-solid fa-calculator"></i> Calculating Equipment Lease Liability</h3>
+                    <p>The initial lease liability for equipment equals the <strong>present value of all future lease
+                        payments</strong>, discounted at:</p>
+                    <ol>
+                        <li><strong>Rate implicit in the lease</strong> (rarely available from lessors), or</li>
+                        <li><strong>Incremental borrowing rate (IBR)</strong>—your company's cost to borrow for similar equipment</li>
+                    </ol>
+
+                    <div style="background: #e7f3ff; padding: 1.2rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #1e88e5;">
+                        <p style="margin: 0 0 0.5rem 0;"><strong>💰 Typical IBR Ranges for Equipment Leases:</strong></p>
+                        <ul style="margin: 0.5rem 0; font-size: 0.95rem;">
+                            <li><strong>Singapore:</strong> 5.0% - 6.0% (ABS + credit spread)</li>
+                            <li><strong>Malaysia:</strong> 6.5% - 7.5% (BLR + credit spread)</li>
+                            <li><strong>Hong Kong:</strong> 5.5% - 6.5% (HIBOR + spread)</li>
+                        </ul>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; font-style: italic;">Note: Equipment-backed leases
+                            often have higher rates than real estate (0.5-1% premium) due to faster depreciation and lower
+                            collateral value.</p>
                     </div>
 
                     <div class="formula-box">
                         <p><strong>Present Value Formula:</strong></p>
                         <code>PV = PMT × [(1 - (1 + r)^-n) / r]</code>
-                        <p class="formula-note">Where PMT = periodic payment, r = periodic interest rate, n = number of
-                            periods</p>
+                        <p class="formula-note">Where PMT = monthly equipment payment, r = monthly IBR, n = total months</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;"><strong>Example:</strong> $5,000/month × 36 months
+                            @ 6% IBR = $162,419 initial liability (not $180,000)</p>
                     </div>
                 </article>
 
                 <article class="guide-item">
-                    <h3><i class="fa-solid fa-building"></i> Right-of-Use Asset Measurement</h3>
-                    <p>The ROU asset is initially measured at cost, which includes:</p>
+                    <h3><i class="fa-solid fa-tools"></i> Equipment-Specific ROU Asset Components</h3>
+                    <p>For equipment leases, the ROU asset initial measurement typically includes:</p>
                     <ul>
-                        <li>The initial lease liability amount</li>
-                        <li>Lease payments made at or before commencement (less incentives received)</li>
-                        <li>Initial direct costs incurred by the lessee</li>
-                        <li>Estimated costs to dismantle/restore the underlying asset</li>
+                        <li><strong>Initial lease liability amount</strong> (present value of payments)</li>
+                        <li><strong>Installation costs</strong> (e.g., machinery setup, calibration)</li>
+                        <li><strong>Delivery and freight</strong> (if paid by lessee)</li>
+                        <li><strong>Initial direct costs</strong> (broker fees, if applicable)</li>
+                        <li><strong>Decommissioning costs</strong> (e.g., removal of heavy equipment at lease end)</li>
                     </ul>
-                    <p>For simplicity, this calculator assumes <strong>ROU Asset = Initial Lease Liability</strong>,
-                        which is appropriate when there are no prepayments, incentives, or restoration costs.</p>
+
+                    <div style="background: #fff9e6; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <p style="margin: 0;"><strong>⚠️ Common Mistake:</strong> Don't capitalize routine maintenance or
+                            training costs—these are period expenses, not part of the ROU asset.</p>
+                    </div>
+
+                    <p style="margin-top: 1rem;">For this calculator, we assume <strong>ROU Asset = Initial Lease Liability</strong>
+                        for simplicity. Add installation/decommissioning costs manually if material.</p>
                 </article>
 
                 <article class="guide-item">
-                    <h3><i class="fa-solid fa-arrows-rotate"></i> Subsequent Measurement</h3>
-                    <p>After initial recognition:</p>
-                    <ul>
-                        <li><strong>Lease Liability:</strong> Increases by interest expense each period, decreases by
-                            lease payments made. The interest is calculated using the effective interest method.</li>
-                        <li><strong>ROU Asset:</strong> Typically depreciated on a straight-line basis over the shorter
-                            of the lease term or the asset's useful life.</li>
-                    </ul>
-                    <p>This creates a <strong>"front-loaded" expense pattern</strong>—total expense (interest +
-                        depreciation) is higher in early periods and decreases over time.</p>
+                    <h3><i class="fa-solid fa-chart-line"></i> Subsequent Measurement: Interest & Depreciation</h3>
+                    <p>After initial recognition, equipment lease accounting follows this pattern each period:</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                        <div style="background: #f1f8ff; padding: 1rem; border-radius: 6px;">
+                            <h4 style="margin-top: 0; color: #0066cc;">📉 Lease Liability</h4>
+                            <p style="font-size: 0.9rem; margin: 0;">Increases by <strong>interest expense</strong> (using effective
+                                interest method), then decreases by <strong>payment made</strong>.</p>
+                        </div>
+                        <div style="background: #fff5f5; padding: 1rem; border-radius: 6px;">
+                            <h4 style="margin-top: 0; color: #cc0000;">📊 ROU Asset</h4>
+                            <p style="font-size: 0.9rem; margin: 0;">Decreases by <strong>depreciation expense</strong> (straight-line
+                                over depreciation period determined above).</p>
+                        </div>
+                    </div>
+
+                    <p><strong>Total P&L Impact:</strong> Interest + Depreciation each period</p>
+                    <p style="font-size: 0.95rem;">This creates a <strong>"front-loaded" expense pattern</strong>—total expense
+                        is higher in early years (when interest is higher) and decreases over time. This is especially noticeable
+                        for long-term equipment leases (5+ years).</p>
+
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <p style="margin: 0;"><strong>💡 Pro Tip for Equipment Portfolios:</strong> If you have 50+ similar
+                            equipment items (e.g., laptops, tablets, copiers), IFRS 16 allows a <strong>portfolio approach</strong>—
+                            calculate one aggregate lease liability instead of 50 individual calculations. This significantly
+                            reduces compliance burden.</p>
+                    </div>
+                </article>
+
+                <article class="guide-item">
+                    <h3><i class="fa-solid fa-pen-to-square"></i> Equipment Lease Modifications & Upgrades</h3>
+                    <p>Equipment leases often require mid-term changes—upgrades, add-ons, or early terminations. Here's how
+                        to account for them:</p>
+
+                    <div style="margin: 1rem 0;">
+                        <p style="margin: 0.5rem 0;"><strong>Scenario 1: Equipment Upgrade (adds scope)</strong></p>
+                        <p style="font-size: 0.9rem; margin: 0 0 0 1rem;">Example: Adding a 4th axis to a CNC machine,
+                            increasing monthly payment from $5,000 to $6,500</p>
+                        <p style="font-size: 0.9rem; margin: 0.5rem 0 0 1rem; color: #0066cc;"><strong>→ Accounting:</strong>
+                            Treat as a <strong>separate new lease</strong> if the added functionality is distinct. Otherwise,
+                            remeasure the existing lease liability using a revised discount rate.</p>
+                    </div>
+
+                    <div style="margin: 1rem 0;">
+                        <p style="margin: 0.5rem 0;"><strong>Scenario 2: Payment Increase (no scope change)</strong></p>
+                        <p style="font-size: 0.9rem; margin: 0 0 0 1rem;">Example: Lessor increases monthly payment due to
+                            inflation adjustment clause</p>
+                        <p style="font-size: 0.9rem; margin: 0.5rem 0 0 1rem; color: #0066cc;"><strong>→ Accounting:</strong>
+                            Remeasure lease liability with new payment stream at <strong>revised IBR at modification date</strong>.
+                            Adjust ROU asset by the difference.</p>
+                    </div>
+
+                    <div style="margin: 1rem 0;">
+                        <p style="margin: 0.5rem 0;"><strong>Scenario 3: Early Termination</strong></p>
+                        <p style="font-size: 0.9rem; margin: 0 0 0 1rem;">Example: Returning equipment after 24 of 36 months
+                            with termination penalty</p>
+                        <p style="font-size: 0.9rem; margin: 0.5rem 0 0 1rem; color: #0066cc;"><strong>→ Accounting:</strong>
+                            Derecognize ROU asset and lease liability. Recognize any gain/loss (including termination fee)
+                            in P&L.</p>
+                    </div>
+
+                    <div class="faq-tip" style="margin-top: 1rem;">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span><strong>Pro Tip:</strong> Use our "Add Lease Modification" tool above to handle payment changes
+                            automatically. Enter the period of change and new payment amount—we'll recalculate the liability
+                            and adjustment for you.</span>
+                    </div>
                 </article>
             </div>
 

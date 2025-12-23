@@ -882,81 +882,237 @@
 
             <div class="guide-grid">
                 <article class="guide-item">
-                    <h3><i class="fa-solid fa-scale-balanced"></i> The Core Change: On-Balance Sheet Recognition</h3>
-                    <p>Before IFRS 16, operating leases were kept "off-balance sheet"—only disclosed in footnotes. Under
-                        the new standard, <strong>almost all leases must now appear on the balance sheet</strong> as:
-                    </p>
-                    <ul>
-                        <li><strong>Right-of-Use (ROU) Asset:</strong> Representing the lessee's right to use the leased
-                            asset over the lease term</li>
-                        <li><strong>Lease Liability:</strong> The present value of future lease payments the lessee is
-                            obligated to make</li>
-                    </ul>
-                    <p>This brings greater transparency to financial statements and allows investors to better assess a
-                        company's true financial obligations.</p>
+                    <h3><i class="fa-solid fa-flag-usa"></i> ASC 842: US GAAP Lease Accounting Standard</h3>
+                    <p><strong>ASC 842 "Leases"</strong> is the US GAAP lease accounting standard issued by FASB, effective
+                        for public companies from <strong>December 15, 2018</strong> and private companies from <strong>December
+                        15, 2021</strong>. It replaced ASC 840 (the old standard).</p>
+
+                    <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; margin: 1rem 0; border-left: 4px solid #1565c0;">
+                        <p style="margin: 0;"><strong>🏛️ Key Change from ASC 840:</strong></p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem;"><strong>All leases</strong> (both operating
+                            and finance) now require <strong>balance sheet recognition</strong>—a ROU asset and lease liability.
+                            Under ASC 840, operating leases were off-balance sheet.</p>
+                    </div>
+
+                    <p><strong>Critical Difference from IFRS 16:</strong> ASC 842 <strong>retains dual classification</strong>—
+                        Operating vs Finance leases—which affects P&L presentation and expense recognition patterns.</p>
                 </article>
 
                 <article class="guide-item">
-                    <h3><i class="fa-solid fa-calculator"></i> How Lease Liability is Calculated</h3>
-                    <p>The initial lease liability equals the <strong>present value of lease payments</strong> not yet
-                        paid at the commencement date. The discount rate used is typically:</p>
-                    <ol>
-                        <li><strong>Interest rate implicit in the lease</strong> (if readily determinable), or</li>
-                        <li><strong>Lessee's incremental borrowing rate</strong> (the rate at which the lessee could
-                            borrow a similar amount for a similar term)</li>
-                    </ol>
-                    <div class="guide-item">
-                        <h3><i class="fa-solid fa-pen-to-square"></i> Lease Modifications & Remeasurement</h3>
-                        <p>Standard IFRS 16 accounting changes when the terms of a lease change (e.g., rent increases,
-                            term extensions, or space reduction). This is called a <strong>Lease Modification</strong>.
-                        </p>
-                        <p>When a modification occurs, you must:</p>
-                        <ol>
-                            <li><strong>Remeasure the Lease Liability:</strong> Discount the <em>new</em> future
-                                payments using a <em>revised</em> discount rate at the modification date.</li>
-                            <li><strong>Adjust the ROU Asset:</strong> The difference between the old and new liability
-                                is adjusted against the Right-of-Use Asset.</li>
+                    <h3><i class="fa-solid fa-code-branch"></i> Operating vs. Finance Lease Classification (The "Any One" Test)</h3>
+                    <p>Unlike IFRS 16 (which treats all leases the same for lessees), ASC 842 requires classification as
+                        either <strong>Operating</strong> or <strong>Finance</strong> lease. A lease is a <strong>Finance
+                        Lease</strong> if <strong>ANY ONE</strong> of the following is true:</p>
+
+                    <div style="background: #fff3e0; padding: 1.2rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #ff6f00;">
+                        <ol style="margin: 0.5rem 0; font-size: 0.95rem;">
+                            <li><strong>Transfer of Ownership:</strong> The lease transfers ownership of the asset to the
+                                lessee by the end of the lease term</li>
+                            <li><strong>Purchase Option:</strong> The lessee has a purchase option that is <strong>reasonably
+                                certain</strong> to be exercised</li>
+                            <li><strong>Lease Term Test:</strong> The lease term is ≥ <strong>75% of the asset's remaining
+                                economic life</strong> (bright-line test under old rules, now judgment-based)</li>
+                            <li><strong>Present Value Test:</strong> The PV of lease payments ≥ <strong>90% of the asset's
+                                fair market value</strong> at commencement (also now judgment-based)</li>
+                            <li><strong>Specialized Asset:</strong> The underlying asset is of such a specialized nature that
+                                it has <strong>no alternative use</strong> to the lessor at the end of the lease term</li>
                         </ol>
-                        <div class="faq-tip" style="margin-top: 1rem;">
-                            <i class="fa-solid fa-lightbulb"></i>
-                            <span><strong>Pro Tip:</strong> Use our "Add Lease Modification" tool above to handle this
-                                automatically. Simply enter the period the change takes effect, and we'll calculate the
-                                adjustment for you.</span>
-                        </div>
+                        <p style="margin: 1rem 0 0 0; font-size: 0.9rem; font-weight: bold; color: #e65100;">If <strong>NONE</strong>
+                            of these criteria are met → <strong>Operating Lease</strong></p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; font-weight: bold; color: #0277bd;">If <strong>ANY ONE</strong>
+                            or more are met → <strong>Finance Lease</strong></p>
+                    </div>
+
+                    <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <p style="margin: 0;"><strong>💡 Practical Tip:</strong> Most office, retail, and equipment leases
+                            without purchase options or ownership transfer = <strong>Operating Leases</strong>. Finance leases
+                            are common for specialized equipment, long-term asset leases (e.g., 20-year building lease), or
+                            leases with bargain purchase options.</p>
+                    </div>
+                </article>
+
+                <article class="guide-item">
+                    <h3><i class="fa-solid fa-calculator"></i> Calculating Lease Liability (Same for Both Types)</h3>
+                    <p>For <strong>both Operating and Finance leases</strong>, the initial lease liability equals the
+                        <strong>present value of lease payments</strong>, discounted at:</p>
+                    <ol>
+                        <li><strong>Rate implicit in the lease</strong> (if readily determinable—rare in practice), or</li>
+                        <li><strong>Lessee's incremental borrowing rate (IBR)</strong>—the rate to borrow on a collateralized
+                            basis for a similar term</li>
+                    </ol>
+
+                    <div style="background: #fff9e6; padding: 1.2rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #f57c00;">
+                        <p style="margin: 0 0 0.5rem 0;"><strong>💵 Typical US IBR Ranges (2024-2025):</strong></p>
+                        <ul style="margin: 0.5rem 0; font-size: 0.95rem;">
+                            <li><strong>Prime-rated companies:</strong> 5.5% - 6.5% (Prime Rate + 0-1%)</li>
+                            <li><strong>Mid-market companies:</strong> 6.5% - 8.0% (Prime + 1-2.5%)</li>
+                            <li><strong>Small businesses / startups:</strong> 8.0% - 12.0% (Prime + 2.5-6.5%)</li>
+                        </ul>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; font-style: italic;">Note: US Prime Rate as of
+                            December 2024 = ~5.5%. Adjust for your company's credit profile and collateral quality.</p>
                     </div>
 
                     <div class="formula-box">
                         <p><strong>Present Value Formula:</strong></p>
                         <code>PV = PMT × [(1 - (1 + r)^-n) / r]</code>
-                        <p class="formula-note">Where PMT = periodic payment, r = periodic interest rate, n = number of
-                            periods</p>
+                        <p class="formula-note">Where PMT = periodic payment, r = periodic IBR, n = number of periods</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;"><strong>Example:</strong> $8,000/month × 60 months
+                            @ 6.5% IBR = $408,263 initial liability (not $480,000)</p>
+                    </div>
+
+                    <div style="background: #ffebee; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <p style="margin: 0;"><strong>⚠️ ASC 842 Practical Expedient for Private Companies:</strong></p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem;">Private companies can elect a risk-free rate
+                            (US Treasury) instead of IBR, simplifying the calculation significantly. This is NOT available
+                            to public companies.</p>
                     </div>
                 </article>
 
                 <article class="guide-item">
-                    <h3><i class="fa-solid fa-building"></i> Right-of-Use Asset Measurement</h3>
-                    <p>The ROU asset is initially measured at cost, which includes:</p>
-                    <ul>
-                        <li>The initial lease liability amount</li>
-                        <li>Lease payments made at or before commencement (less incentives received)</li>
-                        <li>Initial direct costs incurred by the lessee</li>
-                        <li>Estimated costs to dismantle/restore the underlying asset</li>
-                    </ul>
-                    <p>For simplicity, this calculator assumes <strong>ROU Asset = Initial Lease Liability</strong>,
-                        which is appropriate when there are no prepayments, incentives, or restoration costs.</p>
+                    <h3><i class="fa-solid fa-chart-bar"></i> Subsequent Measurement: Operating vs. Finance</h3>
+                    <p>This is where <strong>Operating and Finance leases diverge</strong> under ASC 842:</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                        <div style="background: #e8f5e9; padding: 1rem; border-radius: 6px; border: 2px solid #2e7d32;">
+                            <h4 style="margin-top: 0; color: #1b5e20;">✅ Operating Lease</h4>
+                            <p style="font-size: 0.9rem; margin: 0.5rem 0;"><strong>P&L Recognition:</strong></p>
+                            <ul style="font-size: 0.9rem; margin: 0.5rem 0;">
+                                <li><strong>Single lease expense</strong> (straight-line over lease term)</li>
+                                <li>Presented as <strong>operating expense</strong></li>
+                                <li>Recognized in P&L similar to old ASC 840</li>
+                            </ul>
+                            <p style="font-size: 0.9rem; margin: 0.5rem 0;"><strong>Balance Sheet:</strong></p>
+                            <ul style="font-size: 0.9rem; margin: 0;">
+                                <li>ROU Asset + Lease Liability (both on balance sheet)</li>
+                                <li>ROU asset = plug to achieve straight-line expense</li>
+                            </ul>
+                        </div>
+
+                        <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; border: 2px solid #1565c0;">
+                            <h4 style="margin-top: 0; color: #0d47a1;">🔵 Finance Lease</h4>
+                            <p style="font-size: 0.9rem; margin: 0.5rem 0;"><strong>P&L Recognition:</strong></p>
+                            <ul style="font-size: 0.9rem; margin: 0.5rem 0;">
+                                <li><strong>Amortization expense</strong> (straight-line, separate line)</li>
+                                <li><strong>Interest expense</strong> (using effective interest method)</li>
+                                <li>Same as IFRS 16 / capital lease under ASC 840</li>
+                            </ul>
+                            <p style="font-size: 0.9rem; margin: 0.5rem 0;"><strong>Balance Sheet:</strong></p>
+                            <ul style="font-size: 0.9rem; margin: 0;">
+                                <li>ROU Asset + Lease Liability (both on balance sheet)</li>
+                                <li>ROU asset depreciated separately from interest</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 1rem;"><strong>Key Implication:</strong> Operating leases have <strong>straight-line
+                        total expense</strong> (like old ASC 840), while Finance leases have <strong>front-loaded expense</strong>
+                        (higher in early years, decreasing over time).</p>
+
+                    <div style="background: #fff3e0; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <p style="margin: 0;"><strong>📊 Cash Flow Statement Impact:</strong></p>
+                        <ul style="margin: 0.5rem 0; font-size: 0.95rem;">
+                            <li><strong>Operating Lease:</strong> All payments = <strong>Operating Cash Flow</strong></li>
+                            <li><strong>Finance Lease:</strong> Interest = Operating CF, Principal = <strong>Financing CF</strong></li>
+                        </ul>
+                    </div>
                 </article>
 
                 <article class="guide-item">
-                    <h3><i class="fa-solid fa-arrows-rotate"></i> Subsequent Measurement</h3>
-                    <p>After initial recognition:</p>
+                    <h3><i class="fa-solid fa-home"></i> Initial Measurement of ROU Asset</h3>
+                    <p>For both Operating and Finance leases, the ROU asset is initially measured as:</p>
                     <ul>
-                        <li><strong>Lease Liability:</strong> Increases by interest expense each period, decreases by
-                            lease payments made. The interest is calculated using the effective interest method.</li>
-                        <li><strong>ROU Asset:</strong> Typically depreciated on a straight-line basis over the shorter
-                            of the lease term or the asset's useful life.</li>
+                        <li><strong>Initial lease liability amount</strong> (PV of payments)</li>
+                        <li><strong>+ Lease payments made at/before commencement</strong> (e.g., first month's rent)</li>
+                        <li><strong>+ Initial direct costs</strong> (broker fees, legal costs paid by lessee)</li>
+                        <li><strong>- Lease incentives received</strong> (e.g., tenant improvement allowance, rent-free periods)</li>
                     </ul>
-                    <p>This creates a <strong>"front-loaded" expense pattern</strong>—total expense (interest +
-                        depreciation) is higher in early periods and decreases over time.</p>
+
+                    <p style="margin-top: 1rem;">For this calculator, we assume <strong>ROU Asset = Initial Lease Liability</strong>
+                        for simplicity. Adjust manually for prepayments, incentives, or direct costs.</p>
+                </article>
+
+                <article class="guide-item">
+                    <h3><i class="fa-solid fa-clock-rotate-left"></i> Transitioning from ASC 840 to ASC 842</h3>
+                    <p>If you're implementing ASC 842 for the first time (or reviewing past transition), here are the key methods:</p>
+
+                    <div style="background: #f3e5f5; padding: 1.2rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #7b1fa2;">
+                        <p style="margin: 0;"><strong>📋 Modified Retrospective Approach (Most Common):</strong></p>
+                        <ul style="margin: 0.5rem 0; font-size: 0.95rem;">
+                            <li>Recognize ROU asset and lease liability at <strong>adoption date</strong> (not lease commencement)</li>
+                            <li>ROU asset = Lease liability - Deferred rent - Unamortized lease incentives + Prepaid rent</li>
+                            <li>No restatement of prior periods required</li>
+                            <li>Practical expedient package available (grandparenting ASC 840 classifications)</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #e0f2f1; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <p style="margin: 0;"><strong>💡 Practical Expedient Package (Highly Recommended):</strong></p>
+                        <ol style="margin: 0.5rem 0; font-size: 0.95rem;">
+                            <li>No need to reassess lease classification (operating under ASC 840 → operating under ASC 842)</li>
+                            <li>No need to reassess whether a contract contains a lease</li>
+                            <li>No need to reassess initial direct costs</li>
+                        </ol>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; font-style: italic;">Must elect all 3 expedients
+                            together—cannot pick individually.</p>
+                    </div>
+                </article>
+
+                <article class="guide-item">
+                    <h3><i class="fa-solid fa-file-lines"></i> ASC 842 Disclosure Requirements</h3>
+                    <p>ASC 842 requires extensive footnote disclosures, significantly more than ASC 840:</p>
+
+                    <div style="background: #fff9c4; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                        <p style="margin: 0;"><strong>📝 Required Disclosures:</strong></p>
+                        <ul style="margin: 0.5rem 0; font-size: 0.95rem;">
+                            <li>Lease cost breakdown (operating lease cost, finance lease amortization + interest, short-term
+                                lease cost, variable lease cost)</li>
+                            <li>Weighted-average remaining lease term (separate for operating and finance)</li>
+                            <li>Weighted-average discount rate (separate for operating and finance)</li>
+                            <li>Maturity analysis of lease liabilities (5-year schedule + thereafter)</li>
+                            <li>Supplemental cash flow information (cash paid for leases, ROU assets obtained)</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #ffebee; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <p style="margin: 0;"><strong>⚠️ Common Audit Finding:</strong> Incomplete maturity analysis or missing
+                            weighted-average calculations. Ensure your lease system can generate these automatically—manual
+                            calculation for 50+ leases is error-prone.</p>
+                    </div>
+                </article>
+
+                <article class="guide-item">
+                    <h3><i class="fa-solid fa-pen-to-square"></i> Lease Modifications Under ASC 842</h3>
+                    <p>When lease terms change (payment increase, term extension, scope change), ASC 842 requires remeasurement:</p>
+
+                    <div style="margin: 1rem 0;">
+                        <p style="margin: 0.5rem 0;"><strong>Scenario 1: Lease Extension (5 years → 7 years)</strong></p>
+                        <p style="font-size: 0.9rem; margin: 0 0 0 1rem;">Example: 5-year office lease extended by 2 additional years</p>
+                        <p style="font-size: 0.9rem; margin: 0.5rem 0 0 1rem; color: #0066cc;"><strong>→ Accounting:</strong>
+                            Remeasure lease liability using <strong>revised discount rate at modification date</strong>.
+                            Reassess classification (could change from operating to finance if now meets 75%/90% tests).</p>
+                    </div>
+
+                    <div style="margin: 1rem 0;">
+                        <p style="margin: 0.5rem 0;"><strong>Scenario 2: Increase/Decrease in Scope (Add/Reduce Space)</strong></p>
+                        <p style="font-size: 0.9rem; margin: 0 0 0 1rem;">Example: Expand from 5,000 sq ft to 8,000 sq ft</p>
+                        <p style="font-size: 0.9rem; margin: 0.5rem 0 0 1rem; color: #0066cc;"><strong>→ Accounting:</strong>
+                            Treat additional 3,000 sq ft as a <strong>separate new lease</strong> if priced at standalone rate.
+                            Otherwise, remeasure existing lease.</p>
+                    </div>
+
+                    <div style="margin: 1rem 0;">
+                        <p style="margin: 0.5rem 0;"><strong>Scenario 3: Rent Increase (No Scope Change)</strong></p>
+                        <p style="font-size: 0.9rem; margin: 0 0 0 1rem;">Example: Escalation clause increases monthly rent from $10,000 to $10,500</p>
+                        <p style="font-size: 0.9rem; margin: 0.5rem 0 0 1rem; color: #0066cc;"><strong>→ Accounting:</strong>
+                            If increase is tied to an index (CPI): use <strong>original discount rate</strong>. If negotiated
+                            increase: use <strong>revised discount rate</strong>. Adjust ROU asset by difference.</p>
+                    </div>
+
+                    <div class="faq-tip" style="margin-top: 1rem;">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span><strong>Pro Tip:</strong> Use our "Add Lease Modification" tool above to handle payment and term
+                            changes. Enter the modification details and we'll recalculate the liability and ROU asset adjustment.</span>
+                    </div>
                 </article>
             </div>
 
