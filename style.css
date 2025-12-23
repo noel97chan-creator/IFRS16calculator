@@ -239,8 +239,23 @@ body {
     font-size: 1.15rem;
     color: var(--text-secondary);
     max-width: 700px;
-    margin: 0 auto var(--space-xl);
+    margin: 0 auto var(--space-md);
     line-height: 1.7;
+}
+
+.hero-features {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin: 0 auto var(--space-xl);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.hero-features strong {
+    color: var(--success);
+    font-weight: 500;
 }
 
 .hero-stats {
