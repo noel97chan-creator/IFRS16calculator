@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>IFRS 16 Lease Calculator | SFRS 16 & MFRS 16 Compliance</title>
+    <title>IFRS 16 Lease Calculator | Free Tool for IFRS 16 Leases & Compliance</title>
     <meta name="description"
-        content="Free IFRS 16 calculator for Singapore (SFRS 16) & Malaysia. Supports lease modifications, ROU calculation & audit-ready Excel export. No signup required.">
+        content="Free IFRS 16 lease calculator tool for IFRS 16 leases, SFRS 16 & MFRS 16 compliance. Calculate ROU assets & lease liabilities with audit-ready Excel export. No signup required.">
     <meta name="keywords"
         content="IFRS 16 calculator, free IFRS 16 software, lease liability calculator, ROU asset calculator, how to calculate lease liability, lease modification calculator, SFRS 16, MFRS 16, lease amortization schedule, Singapore lease accounting, Malaysia lease accounting, Excel alternative IFRS 16, audit-ready lease calculation, present value lease calculator, right of use asset calculator">
     <meta name="author" content="IFRS16 Calculator">
@@ -64,15 +64,31 @@
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 
-    <!-- Fonts & Icons -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fonts with display=swap (prevents layout shift) -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
+    </noscript>
+
+    <!-- Font Awesome - Only icons we use (reduces unused CSS by ~18KB) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"
+        media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css">
+    </noscript>
+
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
     <!-- Structured Data: Software Application -->
@@ -393,9 +409,11 @@
             <div class="hero-badge">
                 <i class="fa-solid fa-check-circle"></i> SFRS 16 & MFRS 16 Compliant
             </div>
-            <h1 class="page-title">IFRS 16 Lease Calculator</h1>
-            <p class="hero-subtitle">Calculate lease liability, ROU asset value, and generate audit-ready amortization
-                schedules with support for <strong>lease modifications</strong>. Free for accountants and auditors.</p>
+            <h1 class="page-title">IFRS 16 Lease Calculator for IFRS 16 Leases</h1>
+            <p class="hero-subtitle">Comprehensive IFRS 16 lease calculator tool. Simplify your accounting for
+                <strong>IFRS 16 leases</strong> by calculating liabilities, right-of-use assets, and generating
+                audit-ready amortization schedules. Free for accountants and auditors in Singapore & Malaysia.
+            </p>
             <div class="hero-actions">
                 <a href="#calculator" class="btn-primary">Start Calculation</a>
                 <a href="#guide" class="btn-secondary">Read the Guide</a>
@@ -799,8 +817,90 @@
                             <li>Effective: 1 January 2019</li>
                             <li>Regulator: MASB, Securities Commission</li>
                             <li>Exemptions: Same as IFRS 16</li>
-                        </ul>
                     </div>
+                </div>
+            </div>
+
+            <!-- NEW: IBR Reference Rates Section -->
+            <div class="guide-local" id="ibr-rates">
+                <h3><i class="fa-solid fa-percent"></i> Incremental Borrowing Rate (IBR) Reference — Singapore &
+                    Malaysia</h3>
+                <p>When the <strong>interest rate implicit in the lease</strong> is not readily determinable, IFRS 16
+                    requires using the <strong>lessee's incremental borrowing rate (IBR)</strong>. Below are official
+                    reference rates to guide your selection:</p>
+
+                <div class="local-grid">
+                    <div class="local-item">
+                        <h4><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3Crect fill='%23ED2939' width='4' height='1.5'/%3E%3Crect fill='white' y='1.5' width='4' height='1.5'/%3E%3Ccircle fill='white' cx='.6' cy='.75' r='.4'/%3E%3C/svg%3E"
+                                alt="Singapore flag" class="flag-icon"> Singapore Prime Lending Rates</h4>
+                        <p>Published weekly by the <strong><a
+                                    href="https://abs.org.sg/benchmark-rates/prime-lending-rates" target="_blank"
+                                    rel="noopener">Association of Banks in Singapore (ABS)</a></strong>:</p>
+                        <ul>
+                            <li><strong>DBS Bank:</strong> 4.25%</li>
+                            <li><strong>UOB:</strong> 4.25%</li>
+                            <li><strong>OCBC:</strong> 5.00%</li>
+                            <li><strong>HSBC / Citibank:</strong> 5.50%</li>
+                            <li><strong>Standard Chartered:</strong> 5.75%</li>
+                        </ul>
+                        <p class="formula-note"><em>As of December 2025. Adjust for entity-specific credit risk.</em>
+                        </p>
+                    </div>
+                    <div class="local-item">
+                        <h4><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 1'%3E%3Crect fill='%23CC0000' width='2' height='.5'/%3E%3Crect fill='white' y='.5' width='2' height='.5'/%3E%3C/svg%3E"
+                                alt="Malaysia flag" class="flag-icon"> Malaysia Reference Rates</h4>
+                        <p>Published by <strong><a href="https://www.bnm.gov.my/base-rates/blr" target="_blank"
+                                    rel="noopener">Bank Negara Malaysia</a></strong>:</p>
+                        <ul>
+                            <li><strong>Overnight Policy Rate (OPR):</strong> 2.75%</li>
+                            <li><strong>Standardised Base Rate (SBR):</strong> 2.75%</li>
+                            <li><strong>Base Lending Rate (BLR):</strong> 6.40% – 6.65% (varies by bank)</li>
+                        </ul>
+                        <p class="formula-note"><em>As of July 2025. BLR is commonly used as an IBR proxy for operating
+                                leases.</em></p>
+                    </div>
+                </div>
+                <div class="faq-tip" style="margin-top: 1rem;">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span><strong>Pro Tip:</strong> For most Singapore office leases, an IBR between <strong>4.5% –
+                            5.5%</strong> is reasonable. Always document your rate selection for audit purposes.</span>
+                </div>
+            </div>
+
+            <!-- NEW: Deferred Tax Section -->
+            <div class="guide-local" id="deferred-tax">
+                <h3><i class="fa-solid fa-file-invoice-dollar"></i> Deferred Tax Implications of IFRS 16 Leases</h3>
+                <p>IFRS 16 creates <strong>temporary differences</strong> between accounting and tax treatments,
+                    triggering deferred tax recognition under <strong>IAS 12 / SFRS(I) 1-12</strong>.</p>
+
+                <div class="guide-content">
+                    <article class="guide-item">
+                        <h4>Why Deferred Tax Arises</h4>
+                        <ul>
+                            <li><strong>Accounting:</strong> Recognizes depreciation (ROU Asset) + interest expense
+                                (Lease Liability) in P&L.</li>
+                            <li><strong>Tax (IRAS/LHDN):</strong> Allows deduction based on <em>actual lease payments
+                                    (rent)</em> only.</li>
+                        </ul>
+                        <p>This timing mismatch creates:</p>
+                        <ul>
+                            <li><strong>Deferred Tax Liability (DTL):</strong> From the ROU Asset (book value > tax base
+                                of zero).</li>
+                            <li><strong>Deferred Tax Asset (DTA):</strong> From the Lease Liability (book value > tax
+                                base of zero).</li>
+                        </ul>
+                    </article>
+                    <article class="guide-item">
+                        <h4>2023 IAS 12 Amendment (Important Update)</h4>
+                        <p>Prior to 2023, companies could apply the "Initial Recognition Exemption" to avoid deferred
+                            tax on leases. <strong>This is no longer permitted.</strong></p>
+                        <p>Since <strong>1 January 2023</strong>, entities must recognize deferred tax on the initial
+                            recognition of ROU assets and lease liabilities. This aligns with guidance from the
+                            <strong><a href="https://www.isca.org.sg/" target="_blank" rel="noopener">Institute of
+                                    Singapore Chartered Accountants (ISCA)</a></strong> and <strong><a
+                                    href="https://www.iras.gov.sg/media/docs/default-source/e-tax/etaxguide_tax-treatment-arising-from-adoption-of-frs-116_revised.pdf"
+                                    target="_blank" rel="noopener">IRAS E-Tax Guide</a></strong>.</p>
+                    </article>
                 </div>
             </div>
 
@@ -1015,7 +1115,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.min.js" defer></script>
 </body>
 
 </html>
