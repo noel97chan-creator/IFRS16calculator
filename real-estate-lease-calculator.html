@@ -528,6 +528,75 @@
             </div>
         </section>
 
+        <!-- Real Estate Lease Pain Points Section -->
+        <section class="card content-card" style="margin-bottom: 2rem;">
+            <h2><i class="fa-solid fa-triangle-exclamation"></i> Real Estate Lease Accounting Challenges (Solved)</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">Property leases have complexities that trip up even experienced accountants. Here's how to navigate the tricky areas:</p>
+
+            <div class="guide-grid" style="gap: 1.5rem;">
+                <div class="guide-item" style="background: #fef2f2; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #dc2626;">
+                    <h3 style="margin-top: 0; color: #991b1b;"><i class="fa-solid fa-calendar-xmark"></i> Problem: Rent-Free Periods</h3>
+                    <p><strong>Challenge:</strong> Landlord offers 3 months rent-free (common in Singapore CBD). How do you account for this incentive?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> <strong>Do NOT exclude rent-free periods from lease term.</strong> Your lease liability calculation should span all 36 months (including the 3 rent-free months). Simply enter $0 for the first 3 periods when generating your schedule. The rent-free benefit is automatically spread over the lease term via the amortization pattern.</p>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;"><strong>Pro Tip:</strong> For our calculator, input the full 36-month term with the regular monthly payment. Then manually adjust periods 1-3 to $0 in your Excel export.</p>
+                </div>
+
+                <div class="guide-item" style="background: #fef2f2; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #dc2626;">
+                    <h3 style="margin-top: 0; color: #991b1b;"><i class="fa-solid fa-chart-line"></i> Problem: Variable Rent (Turnover Rent)</h3>
+                    <p><strong>Challenge:</strong> Retail lease has base rent ($10K/mo) + turnover rent (5% of sales > $2M). How much do you capitalize?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> Only capitalize <strong>fixed payments</strong> ($10K/mo). Variable payments based on sales/usage are <strong>expensed as incurred</strong>, not included in lease liability. Exception: If variable payments are "in-substance fixed" (e.g., CPI escalations), they must be included.</p>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;"><strong>Journal Entry (monthly):</strong> Dr. Lease Expense $10K (base) + Dr. Turnover Rent Expense (variable, when incurred) separately.</p>
+                </div>
+
+                <div class="guide-item" style="background: #fef2f2; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #dc2626;">
+                    <h3 style="margin-top: 0; color: #991b1b;"><i class="fa-solid fa-building-circle-check"></i> Problem: Renewal Options (Reasonably Certain Test)</h3>
+                    <p><strong>Challenge:</strong> 3-year lease with 2x 2-year renewal options. What's the lease term for IFRS 16?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> Include renewal periods in lease term <em>only if</em> you're <strong>reasonably certain to exercise</strong>. Factors: significant leasehold improvements, specialized location, market conditions, contractual penalties. Singapore example: If you spent $500K on fit-out for a $5K/mo lease, you're likely exercising renewal → use 7-year term (3+2+2).</p>
+                    </div>
+                </div>
+
+                <div class="guide-item" style="background: #fef2f2; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #dc2626;">
+                    <h3 style="margin-top: 0; color: #991b1b;"><i class="fa-solid fa-screwdriver-wrench"></i> Problem: Initial Direct Costs (Broker Fees, Legal)</h3>
+                    <p><strong>Challenge:</strong> You paid $50K in broker fees and $15K in legal fees to secure the office lease. Where does this go?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> <strong>Add to ROU Asset</strong>, not lease liability. Initial direct costs (broker fees, legal fees, commissions) are capitalized as part of the ROU asset and depreciated over the lease term. Do NOT add these to your payment inputs in the calculator—add them separately to the ROU asset balance post-calculation.</p>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;"><strong>Formula:</strong> ROU Asset = Lease Liability + Initial Direct Costs + Prepaid Rent - Lease Incentives</p>
+                </div>
+
+                <div class="guide-item" style="background: #fef2f2; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #dc2626;">
+                    <h3 style="margin-top: 0; color: #991b1b;"><i class="fa-solid fa-money-bill-transfer"></i> Problem: Common Area Maintenance (CAM) Charges</h3>
+                    <p><strong>Challenge:</strong> Shopping mall lease: $20K base rent + $5K CAM charges monthly. Do you capitalize the CAM?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> It depends on whether CAM is <strong>fixed or variable</strong>. If fixed ($5K every month), include in lease liability ($25K total payment). If variable (actual costs allocated), expense as incurred. Most Singapore/Malaysia CAM is fixed → capitalize the full $25K/mo.</p>
+                    </div>
+                </div>
+
+                <div class="guide-item" style="background: #fef2f2; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #dc2626;">
+                    <h3 style="margin-top: 0; color: #991b1b;"><i class="fa-solid fa-hands-holding-circle"></i> Problem: Subleases (Head Lease + Sublease)</h3>
+                    <p><strong>Challenge:</strong> You lease office space ($30K/mo) and sublease part of it ($10K/mo). How do you account for both?</p>
+                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #065f46;"><strong>✓ Solution:</strong> <strong>Head lease:</strong> Recognize full ROU asset + lease liability for $30K/mo (use our calculator). <strong>Sublease:</strong> Classify as operating or finance lease (as lessor). If operating, recognize sublease income straight-line. If finance, derecognize portion of ROU asset related to sublease and recognize net investment in lease.</p>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;"><strong>Key Point:</strong> Sublease accounting is separate from head lease. Calculate head lease first, then assess sublease classification.</p>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); padding: 1.5rem; border-radius: 8px; margin-top: 2rem; border-left: 4px solid #3b82f6;">
+                <h4 style="margin-top: 0; color: #1e3a5f;"><i class="fa-solid fa-graduation-cap"></i> Singapore Real Estate Lease Pro Tips</h4>
+                <div style="display: grid; gap: 1rem;">
+                    <p style="margin: 0; color: #1e3a5f; line-height: 1.7;"><strong>1. Fit-Out Period:</strong> If landlord provides a 2-month fit-out period before rent starts, this is still part of the lease term. The "commencement date" is when you get control of the space (start of fit-out), not when rent begins.</p>
+                    <p style="margin: 0; color: #1e3a5f; line-height: 1.7;"><strong>2. Security Deposits:</strong> Refundable security deposits (typically 3-6 months' rent in Singapore) are <em>not</em> part of lease payments. Record as a separate asset (Lease Deposit). Only non-refundable deposits are lease payments.</p>
+                    <p style="margin: 0; color: #1e3a5f; line-height: 1.7;"><strong>3. Service Charge vs. Rent:</strong> In Singapore, distinguish between "gross rent" (includes service charge) and "net rent". Only rent components capitalize under IFRS 16. Pure services (e.g., cleaning, security provided by landlord) are expensed.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Calculator Section -->
         <section id="calculator" class="dashboard-grid">
 
