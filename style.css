@@ -24,8 +24,8 @@
     --card-bg: #ffffff;
     --text-main: #1a1a2e;
     --text-secondary: #4a5568;
-    --text-light: #718096;
-    --text-muted: #a0aec0;
+    --text-light: #5a6c7d;  /* Improved from #718096 for WCAG AA compliance */
+    --text-muted: #8997a6;  /* Improved from #a0aec0 for better contrast */
     --border: #e2e8f0;
     --border-light: #edf2f7;
 
@@ -195,6 +195,28 @@ body {
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--primary);
+        flex-direction: column;
+        gap: 0;
+        box-shadow: var(--shadow-xl);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links.mobile-open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: var(--space-lg);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.15);
     }
 
     .mobile-menu-btn {
@@ -209,6 +231,37 @@ body {
 .hero-section {
     text-align: center;
     padding: var(--space-3xl) var(--space-lg) var(--space-xl);
+    position: relative;
+}
+
+/* Hero background image support (when image added) */
+.hero-section.with-image {
+    background: linear-gradient(135deg, rgba(12, 25, 41, 0.92) 0%, rgba(26, 45, 66, 0.90) 100%),
+                url('../images/hero-accounting.jpg') center/cover;
+    color: white;
+    padding: var(--space-3xl) var(--space-lg);
+}
+
+.hero-section.with-image .page-title,
+.hero-section.with-image .page-subtitle {
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section.with-image .hero-badge {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(201, 162, 39, 0.5);
+    color: var(--accent-light);
+    backdrop-filter: blur(10px);
+}
+
+/* Hero actions styling */
+.hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    margin-top: var(--space-xl);
+    flex-wrap: wrap;
 }
 
 .hero-badge {
@@ -368,6 +421,25 @@ body {
     .form-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Improve touch targets for mobile (WCAG 2.1 AA: 44×44px minimum) */
+    .input-group input,
+    .input-group input[type="number"],
+    .input-group input[type="email"],
+    .input-group input[type="text"],
+    .select-wrapper select {
+        min-height: 48px;
+        font-size: 16px; /* Prevents iOS auto-zoom */
+        padding: var(--space-md);
+    }
+
+    button,
+    .btn-primary,
+    .btn-secondary,
+    .btn-example {
+        min-height: 48px;
+        padding: var(--space-md) var(--space-lg);
+    }
 }
 
 .input-group {
@@ -420,6 +492,18 @@ body {
     box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
 }
 
+/* Keyboard focus indicator for accessibility */
+.input-group input:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
 .input-group input::placeholder {
     color: var(--text-muted);
 }
@@ -467,6 +551,11 @@ body {
     border-color: var(--accent);
     outline: none;
     box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
+}
+
+.select-wrapper select:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
 }
 
 .select-arrow {
