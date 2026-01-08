@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How to Calculate Lease Liability Under IFRS 16: Step-by-Step Guide</title>
+    <meta name="description"
+        content="Complete step-by-step guide to calculating lease liability under IFRS 16. Learn present value formulas, incremental borrowing rate selection, and avoid common calculation errors.">
+    <meta name="keywords"
+        content="calculate lease liability, IFRS 16 calculation, present value lease payments, incremental borrowing rate, lease liability formula, how to calculate IFRS 16, lease accounting calculation">
+    <meta name="author" content="IFRS16 Calculator">
+    <link rel="canonical" href="https://www.ifrs16calculator.com/calculate-lease-liability/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.ifrs16calculator.com/calculate-lease-liability/">
+    <meta property="og:title" content="How to Calculate Lease Liability Under IFRS 16: Step-by-Step Guide">
+    <meta property="og:description"
+        content="Master lease liability calculations with our comprehensive guide. Includes formulas, IBR guidance, and common errors to avoid.">
+    <meta property="og:image" content="https://www.ifrs16calculator.com/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Calculate Lease Liability Under IFRS 16">
+    <meta name="twitter:description"
+        content="Step-by-step guide to calculating lease liability with present value formulas and practical examples.">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3291734589203338"
+        crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSWBGWKY7K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-NSWBGWKY7K');
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data: Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Calculate Lease Liability Under IFRS 16: Step-by-Step Guide",
+      "description": "Comprehensive guide explaining how to calculate lease liability under IFRS 16, including present value formulas, incremental borrowing rate selection, and common errors.",
+      "author": {
+        "@type": "Organization",
+        "name": "IFRS16 Calculator"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "IFRS16 Calculator",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.ifrs16calculator.com/logo.png"
+        }
+      },
+      "datePublished": "2025-01-08",
+      "dateModified": "2025-01-08",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.ifrs16calculator.com/calculate-lease-liability/"
+      }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.ifrs16calculator.com/"
+      }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Calculate Lease Liability",
+        "item": "https://www.ifrs16calculator.com/calculate-lease-liability/"
+      }]
+    }
+    </script>
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Calculate Lease Liability Under IFRS 16",
+      "description": "Step-by-step process for calculating lease liability and ROU asset under IFRS 16",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Identify Lease Payments",
+          "text": "Determine which payments to include: fixed payments, variable payments based on index/rate, residual value guarantees, purchase options, and termination penalties."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Determine Discount Rate",
+          "text": "Use the interest rate implicit in the lease if readily determinable, otherwise use the incremental borrowing rate (IBR)."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Calculate Present Value",
+          "text": "Discount all future lease payments to present value using the appropriate annuity formula based on payment timing."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Record Initial Measurement",
+          "text": "Recognize the lease liability and right-of-use asset on the balance sheet at commencement date."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Subsequent Measurement",
+          "text": "Increase liability by interest, decrease by payments, and depreciate the ROU asset each period."
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fa-solid fa-calculator"></i></span>
+                <span class="logo-text">IFRS16<span class="logo-accent">Calculator</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#calculator">Calculator</a>
+                <a href="what-is-ifrs-16.html">What is IFRS 16</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-wrapper">
+
+        <!-- Article Content -->
+        <article class="card content-card">
+            <h1><i class="fa-solid fa-calculator"></i> How to Calculate Lease Liability Under IFRS 16</h1>
+
+            <div class="guide-intro">
+                <p><strong>Calculating lease liability</strong> is one of the most critical tasks in IFRS 16 implementation. Getting it right ensures accurate financial reporting, compliance with auditing standards, and proper representation of your company's financial obligations.</p>
+
+                <p>This comprehensive guide walks you through the exact process of calculating lease liability under IFRS 16, including which payments to include, how to determine the discount rate, and common errors to avoid. Whether you're in Singapore, Malaysia, or any IFRS-adopting jurisdiction, this guide applies to your lease accounting.</p>
+            </div>
+
+            <nav style="background: #f8f9fb; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h2 style="margin-top: 0; font-size: 1.1rem;">Table of Contents</h2>
+                <ul style="margin: 0; padding-left: 1.5rem;">
+                    <li><a href="#overview">Overview: What is Lease Liability?</a></li>
+                    <li><a href="#step1">Step 1: Identify Lease Payments</a></li>
+                    <li><a href="#step2">Step 2: Determine the Discount Rate</a></li>
+                    <li><a href="#step3">Step 3: Calculate Present Value</a></li>
+                    <li><a href="#step4">Step 4: Initial Recognition</a></li>
+                    <li><a href="#step5">Step 5: Subsequent Measurement</a></li>
+                    <li><a href="#common-errors">Common Calculation Errors</a></li>
+                    <li><a href="#calculator-tools">Using Calculator Tools</a></li>
+                </ul>
+            </nav>
+
+            <section id="overview">
+                <h2><i class="fa-solid fa-circle-info"></i> Overview: What is Lease Liability?</h2>
+
+                <div class="guide-item" style="margin: 1.5rem 0;">
+                    <p><strong>Lease liability</strong> under IFRS 16 is the present value of lease payments not yet paid at the commencement date. It represents the lessee's obligation to make future payments for the right to use an asset.</p>
+
+                    <p><strong>Key Principle:</strong> The lease liability is measured at the present value of future lease payments, discounted using the interest rate implicit in the lease or the lessee's incremental borrowing rate.</p>
+
+                    <div style="background: linear-gradient(135deg, rgba(201, 162, 39, 0.1) 0%, rgba(201, 162, 39, 0.05) 100%); border: 1px solid rgba(201, 162, 39, 0.2); padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                        <h3>Why Present Value?</h3>
+                        <p>Money has time value. $10,000 today is worth more than $10,000 in 5 years because you could invest today's $10,000 and earn returns. IFRS 16 requires discounting future lease payments to reflect this time value of money.</p>
+                        <p><strong>Example:</strong> A lease with 36 monthly payments of $5,000 totals $180,000 undiscounted. But at 5% interest, the present value is only ~$169,000 - that's the true economic liability at commencement.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="step1" style="margin-top: 3rem;">
+                <h2><i class="fa-solid fa-1"></i> Step 1: Identify Lease Payments to Include</h2>
+
+                <div class="guide-item" style="margin: 1.5rem 0;">
+                    <p>Not all payments related to a lease are included in the lease liability measurement. IFRS 16 specifies exactly which payments to include:</p>
+
+                    <h3>Payments to INCLUDE:</h3>
+                    <div class="local-grid" style="margin: 1.5rem 0;">
+                        <div class="local-item">
+                            <h4><i class="fa-solid fa-check-circle" style="color: #28a745;"></i> Fixed Payments</h4>
+                            <p>Regular rent payments specified in the contract, less any lease incentives receivable.</p>
+                            <p><strong>Example:</strong> $10,000/month for 36 months</p>
+                        </div>
+                        <div class="local-item">
+                            <h4><i class="fa-solid fa-check-circle" style="color: #28a745;"></i> Variable Payments (Index/Rate Based)</h4>
+                            <p>Variable payments that depend on an index or rate (e.g., CPI, market interest rate).</p>
+                            <p><strong>Example:</strong> Base rent of $10,000 + annual CPI adjustment</p>
+                            <p><strong>Note:</strong> Initially measured using the index/rate at commencement date.</p>
+                        </div>
+                        <div class="local-item">
+                            <h4><i class="fa-solid fa-check-circle" style="color: #28a745;"></i> Residual Value Guarantees</h4>
+                            <p>Amounts expected to be payable under residual value guarantees.</p>
+                            <p><strong>Example:</strong> Guarantee the equipment will be worth at least $50,000 at lease end.</p>
+                        </div>
+                        <div class="local-item">
+                            <h4><i class="fa-solid fa-check-circle" style="color: #28a745;"></i> Purchase Options</h4>
+                            <p>Exercise price of a purchase option if reasonably certain to exercise.</p>
+                            <p><strong>Example:</strong> $25,000 purchase option that's below expected fair value.</p>
+                        </div>
+                        <div class="local-item">
+                            <h4><i class="fa-solid fa-check-circle" style="color: #28a745;"></i> Termination Penalties</h4>
+                            <p>Penalties for terminating the lease, if the lease term reflects exercising termination.</p>
+                            <p><strong>Example:</strong> $100,000 penalty if terminated early.</p>
+                        </div>
+                    </div>
+
+                    <h3>Payments to EXCLUDE:</h3>
+                    <div class="local-grid" style="margin: 1.5rem 0;">
+                        <div class="local-item" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                            <h4><i class="fa-solid fa-times-circle" style="color: #dc3545;"></i> Variable Payments (Performance/Usage Based)</h4>
+                            <p>Variable payments based on performance or usage of the underlying asset.</p>
+                            <p><strong>Example:</strong> Percentage of sales rent, excess mileage fees, per-page printing charges.</p>
+                            <p><strong>Treatment:</strong> Recognized as expense when incurred.</p>
+                        </div>
+                        <div class="local-item" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                            <h4><i class="fa-solid fa-times-circle" style="color: #dc3545;"></i> Non-Lease Components</h4>
+                            <p>Payments for services or other non-lease components (unless practical expedient elected).</p>
+                            <p><strong>Example:</strong> Separately identifiable maintenance, utilities, property taxes.</p>
+                        </div>
+                        <div class="local-item" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                            <h4><i class="fa-solid fa-times-circle" style="color: #dc3545;"></i> Security Deposits</h4>
+                            <p>Refundable security deposits (these are separate assets).</p>
+                            <p><strong>Example:</strong> $50,000 refundable deposit.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-tip" style="margin: 1.5rem 0;">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span><strong>Quick Test:</strong> If the payment amount is fixed and unavoidable regardless of usage, include it. If it varies based on how much you use the asset or your business performance, exclude it.</span>
+                </div>
+            </section>
+
+            <section id="step2" style="margin-top: 3rem;">
+                <h2><i class="fa-solid fa-2"></i> Step 2: Determine the Discount Rate</h2>
+
+                <div class="guide-item" style="margin: 1.5rem 0;">
+                    <p>The discount rate is critical - even a 1% difference can change your lease liability by 5-10%. IFRS 16 provides a clear hierarchy:</p>
+
+                    <h3>Option 1: Interest Rate Implicit in the Lease (Preferred)</h3>
+                    <p>The <strong>implicit rate</strong> is the rate that causes the present value of:</p>
+                    <ul>
+                        <li>Lease payments, PLUS</li>
+                        <li>Unguaranteed residual value</li>
+                    </ul>
+                    <p>...to equal the sum of:</p>
+                    <ul>
+                        <li>Fair value of the underlying asset, PLUS</li>
+                        <li>Lessor's initial direct costs</li>
+                    </ul>
+
+                    <div style="background: #f8f9fb; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                        <p><strong>Reality Check:</strong> In practice, lessees rarely have access to the lessor's initial direct costs or expected residual value, making the implicit rate difficult to determine. Most lessees use the incremental borrowing rate.</p>
+                    </div>
+
+                    <h3>Option 2: Incremental Borrowing Rate (Most Common)</h3>
+                    <p>The <strong>incremental borrowing rate (IBR)</strong> is the rate the lessee would have to pay to borrow:</p>
+                    <ul>
+                        <li>Over a similar term</li>
+                        <li>With a similar security</li>
+                        <li>The funds necessary to obtain an asset of similar value</li>
+                        <li>In a similar economic environment</li>
+                    </ul>
+
+                    <h4>How to Determine Your IBR</h4>
+
+                    <div class="local-grid" style="margin: 1.5rem 0;">
+                        <div class="local-item">
+                            <h4>1. Start with a Reference Rate</h4>
+                            <p><strong>Singapore:</strong></p>
+                            <ul>
+                                <li>Prime Lending Rate: 4.25% - 5.75%</li>
+                                <li>SORA (Singapore Overnight Rate Average)</li>
+                                <li>SGS (Singapore Government Securities) yield curve</li>
+                            </ul>
+                            <p><strong>Malaysia:</strong></p>
+                            <ul>
+                                <li>Base Lending Rate (BLR): 6.40% - 6.65%</li>
+                                <li>Overnight Policy Rate (OPR): 2.75%</li>
+                                <li>MGS (Malaysian Government Securities) yields</li>
+                            </ul>
+                            <p>See <a href="index.html#ibr-rates" style="color: #1e3a5f; font-weight: 600;">current reference rates</a> on our main page.</p>
+                        </div>
+                        <div class="local-item">
+                            <h4>2. Adjust for Entity-Specific Factors</h4>
+                            <p><strong>Add spread for:</strong></p>
+                            <ul>
+                                <li><strong>Credit risk:</strong> Higher risk = higher rate (0.5% - 3%)</li>
+                                <li><strong>Asset specificity:</strong> Specialized assets may warrant premium</li>
+                                <li><strong>Collateral quality:</strong> Real estate vs. equipment</li>
+                            </ul>
+                            <p><strong>Example:</strong></p>
+                            <ul>
+                                <li>Base prime rate: 5.0%</li>
+                                <li>Credit spread (BBB rated): +1.5%</li>
+                                <li><strong>IBR = 6.5%</strong></li>
+                            </ul>
+                        </div>
+                        <div class="local-item">
+                            <h4>3. Match the Lease Term</h4>
+                            <p>Ensure your rate matches the lease term:</p>
+                            <ul>
+                                <li>3-year lease → 3-year borrowing rate</li>
+                                <li>5-year lease → 5-year borrowing rate</li>
+                            </ul>
+                            <p>Use the yield curve if available to interpolate rates for non-standard terms.</p>
+                        </div>
+                        <div class="local-item">
+                            <h4>4. Document Your Methodology</h4>
+                            <p><strong>Critical for audits.</strong> Document:</p>
+                            <ul>
+                                <li>Reference rate source and date</li>
+                                <li>Credit spread justification</li>
+                                <li>Adjustments made</li>
+                                <li>Final IBR calculation</li>
+                            </ul>
+                            <p>Auditors will scrutinize your IBR selection, so maintain detailed workpapers.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="step3" style="margin-top: 3rem;">
+                <h2><i class="fa-solid fa-3"></i> Step 3: Calculate Present Value</h2>
+
+                <div class="guide-item" style="margin: 1.5rem 0;">
+                    <p>Once you have your payments and discount rate, calculate the present value using the appropriate formula based on payment timing.</p>
+
+                    <h3>Present Value Formulas</h3>
+
+                    <h4>Ordinary Annuity (Payments at End of Period)</h4>
+                    <div class="formula-box" style="margin: 1rem 0;">
+                        <p><strong>PV Formula (Ordinary Annuity):</strong></p>
+                        <code>PV = PMT × [(1 - (1 + r)^-n) / r]</code>
+                        <p class="formula-note">Where:</p>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li><strong>PMT</strong> = Periodic payment amount</li>
+                            <li><strong>r</strong> = Periodic interest rate (annual rate / periods per year)</li>
+                            <li><strong>n</strong> = Total number of payment periods</li>
+                        </ul>
+                    </div>
+
+                    <h4>Annuity Due (Payments at Start of Period)</h4>
+                    <div class="formula-box" style="margin: 1rem 0;">
+                        <p><strong>PV Formula (Annuity Due):</strong></p>
+                        <code>PV = PMT × [(1 - (1 + r)^-n) / r] × (1 + r)</code>
+                        <p class="formula-note">Same as ordinary annuity, but multiplied by (1 + r) to account for earlier payment timing.</p>
+                    </div>
+
+                    <h3>Worked Example</h3>
+
+                    <div style="background: #0c1929; color: #e8c547; padding: 1.5rem; border-radius: 6px; font-family: monospace;">
+                        <strong>Scenario:</strong> Office lease with the following terms:<br>
+                        - Monthly payment: $8,000<br>
+                        - Lease term: 36 months<br>
+                        - Payment timing: Start of month (Annuity Due)<br>
+                        - Annual IBR: 5.0%<br><br>
+
+                        <strong>Step 1: Calculate periodic rate</strong><br>
+                        Monthly rate (r) = 5.0% / 12 = 0.4167% = 0.004167<br><br>
+
+                        <strong>Step 2: Apply annuity due formula</strong><br>
+                        PV = $8,000 × [(1 - (1.004167)^-36) / 0.004167] × (1.004167)<br>
+                        PV = $8,000 × 33.7346 × 1.004167<br>
+                        PV = $8,000 × 33.8751<br>
+                        <strong>PV = $271,001</strong><br><br>
+
+                        <strong>Initial Lease Liability = $271,001</strong>
+                    </div>
+
+                    <div class="faq-tip" style="margin: 1.5rem 0;">
+                        <i class="fa-solid fa-calculator"></i>
+                        <span><strong>Faster Option:</strong> Use our <a href="index.html#calculator" style="color: #c9a227; font-weight: 600;">IFRS 16 Calculator</a> to perform this calculation instantly. Input your payment, term, and rate - get the present value in seconds plus a complete amortization schedule.</span>
+                    </div>
+
+                    <h3>Multiple Payment Components</h3>
+                    <p>If your lease has multiple components (e.g., regular payments + purchase option), calculate the PV of each separately and sum them:</p>
+
+                    <div style="background: #f8f9fb; padding: 1rem; border-radius: 6px; margin: 1rem 0;">
+                        <p><strong>Example: Quarterly payments + purchase option</strong></p>
+                        <ul style="margin: 0.5rem 0;">
+                            <li>PV of quarterly payments (16 quarters × RM 25,000 at 1.5%): RM 353,283</li>
+                            <li>PV of purchase option (RM 50,000 discounted 16 quarters): RM 39,401</li>
+                            <li><strong>Total Lease Liability: RM 392,684</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="step4" style="margin-top: 3rem;">
+                <h2><i class="fa-solid fa-4"></i> Step 4: Initial Recognition</h2>
+
+                <div class="guide-item" style="margin: 1.5rem 0;">
+                    <h3>At Commencement Date</h3>
+
+                    <p><strong>Journal Entry:</strong></p>
+                    <div class="journal-box" style="margin: 1rem 0;">
+                        Dr. Right-of-Use Asset &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $271,001<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Cr. Lease Liability &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $271,001<br>
+                        <em style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">(To recognize lease at present value of payments)</em>
+                    </div>
+
+                    <p><strong>Note:</strong> For simplicity, this example assumes ROU Asset = Lease Liability. In practice, adjust ROU asset for:</p>
+                    <ul>
+                        <li>Add: Initial direct costs incurred by lessee</li>
+                        <li>Add: Prepayments made at or before commencement</li>
+                        <li>Less: Lease incentives received</li>
+                        <li>Add: Estimated restoration costs</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="step5" style="margin-top: 3rem;">
+                <h2><i class="fa-solid fa-5"></i> Step 5: Subsequent Measurement (Amortization)</h2>
+
+                <div class="guide-item" style="margin: 1.5rem 0;">
+                    <p>After initial recognition, the lease liability is measured using the <strong>effective interest method</strong>:</p>
+
+                    <h3>Each Period:</h3>
+                    <ol>
+                        <li><strong>Calculate Interest Expense:</strong> Opening Lease Liability × Periodic Interest Rate</li>
+                        <li><strong>Add Interest to Liability:</strong> Lease Liability increases by interest</li>
+                        <li><strong>Reduce by Payment:</strong> Lease Liability decreases by payment made</li>
+                        <li><strong>Closing Balance:</strong> Opening + Interest - Payment</li>
+                    </ol>
+
+                    <h3>Amortization Schedule (First 3 Months)</h3>
+
+                    <div class="table-container" style="overflow-x: auto; margin: 1.5rem 0;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                            <thead style="background: #1e3a5f; color: white;">
+                                <tr>
+                                    <th style="padding: 0.75rem; text-align: left;">Month</th>
+                                    <th style="padding: 0.75rem; text-align: right;">Opening Balance</th>
+                                    <th style="padding: 0.75rem; text-align: right;">Payment</th>
+                                    <th style="padding: 0.75rem; text-align: right;">Interest (0.4167%)</th>
+                                    <th style="padding: 0.75rem; text-align: right;">Principal</th>
+                                    <th style="padding: 0.75rem; text-align: right;">Closing Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #ddd;">
+                                    <td style="padding: 0.75rem;">1 (Jan 2025)</td>
+                                    <td style="padding: 0.75rem; text-align: right;">$271,001</td>
+                                    <td style="padding: 0.75rem; text-align: right;">$8,000</td>
+                                    <td style="padding: 0.75rem; text-align: right; background: #fff3cd;">$0</td>
+                                    <td style="padding: 0.75rem; text-align: right;">$8,000</td>
+                                    <td style="padding: 0.75rem; text-align: right; font-weight: 600;">$263,001</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #ddd;">
+                                    <td style="padding: 0.75rem;">1 (Month-end)</td>
+                                    <td style="padding: 0.75rem; text-align: right;">$263,001</td>
+                                    <td style="padding: 0.75rem; text-align: right;">-</td>
+                                    <td style="padding: 0.75rem; text-align: right; background: #fff3cd;">$1,096</td>
+                                    <td style="padding: 0.75rem; text-align: right;">-</td>
+                                    <td style="padding: 0.75rem; text-align: right; font-weight: 600;">$264,097</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #ddd;">
+                                    <td style="padding: 0.75rem;">2 (Feb 2025)</td>
+                                    <td style="padding: 0.75rem; text-align: right;">$264,097</td>
+                                    <td style="padding: 0.75rem; text-align: right;">$8,000</td>
+                                    <td style="padding: 0.75rem; text-align: right; background: #fff3cd;">-</td>
+                                    <td style="padding: 0.75rem; text-align: right;">$8,000</td>
+                                    <td style="padding: 0.75rem; text-align: right; font-weight: 600;">$256,097</td>
+                                </tr>
+                                <tr style="border-bottom: 2px solid #000;">
+                                    <td style="padding: 0.75rem;">2 (Month-end)</td>
+                                    <td style="padding: 0.75rem; text-align: right;">$256,097</td>
+                                    <td style="padding: 0.75rem; text-align: right;">-</td>
+                                    <td style="padding: 0.75rem; text-align: right; background: #fff3cd;">$1,067</td>
+                                    <td style="padding: 0.75rem; text-align: right;">-</td>
+                                    <td style="padding: 0.75rem; text-align: right; font-weight: 600;">$257,164</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p><strong>Note:</strong> For Annuity Due, the first payment is made immediately, so no interest accrues on it. Interest starts accruing on the reduced balance.</p>
+                </div>
+            </section>
+
+            <section id="common-errors" style="margin-top: 3rem;">
+                <h2><i class="fa-solid fa-triangle-exclamation"></i> Common Calculation Errors to Avoid</h2>
+
+                <div class="guide-grid" style="margin: 1.5rem 0;">
+                    <div class="guide-item" style="border-left: 4px solid #dc3545;">
+                        <h3>Error 1: Using Annual Rate Instead of Periodic Rate</h3>
+                        <p><strong>Wrong:</strong> Using 5% annual rate for monthly discounting</p>
+                        <p><strong>Correct:</strong> 5% / 12 = 0.4167% monthly rate</p>
+                        <p><strong>Impact:</strong> Can overstate liability by 40-50%</p>
+                    </div>
+
+                    <div class="guide-item" style="border-left: 4px solid #dc3545;">
+                        <h3>Error 2: Forgetting to Discount</h3>
+                        <p><strong>Wrong:</strong> Recording total undiscounted payments</p>
+                        <p><strong>Correct:</strong> Always calculate present value</p>
+                        <p><strong>Example:</strong> 36 × $8,000 = $288,000 (wrong) vs. $271,001 PV (correct)</p>
+                    </div>
+
+                    <div class="guide-item" style="border-left: 4px solid #dc3545;">
+                        <h3>Error 3: Wrong Annuity Formula</h3>
+                        <p><strong>Issue:</strong> Using ordinary annuity when payments are in advance</p>
+                        <p><strong>Check:</strong> Lease says "payable in advance" → Use Annuity Due</p>
+                        <p><strong>Impact:</strong> ~1-2% error in PV</p>
+                    </div>
+
+                    <div class="guide-item" style="border-left: 4px solid #dc3545;">
+                        <h3>Error 4: Including Non-Lease Components</h3>
+                        <p><strong>Wrong:</strong> Including maintenance or utilities in lease payments</p>
+                        <p><strong>Correct:</strong> Separate lease from non-lease components</p>
+                        <p><strong>Note:</strong> Practical expedient allows combining, but must be elected</p>
+                    </div>
+
+                    <div class="guide-item" style="border-left: 4px solid #dc3545;">
+                        <h3>Error 5: Using Wrong IBR</h3>
+                        <p><strong>Wrong:</strong> Using same rate for all leases regardless of term</p>
+                        <p><strong>Correct:</strong> Match IBR to lease term and asset risk</p>
+                        <p><strong>Tip:</strong> 3-year office lease ≠ 10-year equipment lease</p>
+                    </div>
+
+                    <div class="guide-item" style="border-left: 4px solid #dc3545;">
+                        <h3>Error 6: Ignoring Rent-Free Periods</h3>
+                        <p><strong>Wrong:</strong> Starting payment count from Month 3 in a 36-month lease with 2 rent-free months</p>
+                        <p><strong>Correct:</strong> Discount back the PV to commencement date</p>
+                        <p><strong>See:</strong> <a href="ifrs-16-examples.html#office-lease" style="color: #1e3a5f;">Office lease example</a> for detailed treatment</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="calculator-tools" style="margin-top: 3rem;">
+                <h2><i class="fa-solid fa-screwdriver-wrench"></i> Using Calculator Tools to Simplify the Process</h2>
+
+                <div class="guide-item" style="margin: 1.5rem 0;">
+                    <p>While understanding the calculation methodology is essential, manual calculation is time-consuming and error-prone. Professional IFRS 16 calculators can save hours of work and eliminate calculation errors.</p>
+
+                    <h3>Benefits of Our IFRS 16 Calculator:</h3>
+                    <ul>
+                        <li><strong>Instant PV Calculation:</strong> Enter payment, term, rate → Get lease liability immediately</li>
+                        <li><strong>Complete Amortization Schedule:</strong> Period-by-period breakdown of interest, principal, and closing balance</li>
+                        <li><strong>Handles Both Annuity Types:</strong> Automatic adjustment for payment timing</li>
+                        <li><strong>Modification Support:</strong> Recalculate for mid-term changes</li>
+                        <li><strong>Excel Export:</strong> Download audit-ready schedules for workpapers</li>
+                        <li><strong>Error Prevention:</strong> Built-in validation prevents common mistakes</li>
+                    </ul>
+
+                    <div class="guide-cta" style="margin-top: 2rem;">
+                        <h3>Calculate Your Lease Liability Now</h3>
+                        <p>Try our free IFRS 16 calculator to see how quickly you can calculate lease liability and generate a complete amortization schedule.</p>
+                        <a href="index.html#calculator" class="btn-primary" style="display: inline-flex; margin: 1rem auto;"><i class="fa-solid fa-calculator"></i> Try IFRS 16 Calculator</a>
+                    </div>
+                </div>
+            </section>
+
+            <div style="margin-top: 3rem; padding: 1.5rem; background: #f8f9fb; border-radius: 8px;">
+                <h3>Related Resources</h3>
+                <ul style="margin: 0.5rem 0;">
+                    <li><a href="what-is-ifrs-16.html">What is IFRS 16? Complete Guide for Accountants</a></li>
+                    <li><a href="ifrs-16-examples.html">IFRS 16 Examples: Real-World Case Studies</a></li>
+                    <li><a href="blog/lease-modification-examples.html">How to Handle Lease Modifications</a></li>
+                    <li><a href="index.html#calculator">IFRS 16 Lease Calculator - Free Tool</a></li>
+                    <li><a href="index.html#faq">IFRS 16 FAQ: Common Questions Answered</a></li>
+                </ul>
+            </div>
+
+        </article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fa-solid fa-calculator"></i> IFRS16<span>Calculator</span>
+                </div>
+                <p>Free lease accounting tools for finance professionals.</p>
+            </div>
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>Main Tools</h4>
+                    <a href="index.html">IFRS 16 Calculator</a>
+                    <a href="index.html#guide">IFRS 16 Guide</a>
+                    <a href="index.html#faq">FAQ</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="what-is-ifrs-16.html">What is IFRS 16</a>
+                    <a href="ifrs-16-vs-asc-842.html">IFRS 16 vs ASC 842</a>
+                    <a href="ifrs-16-examples.html">Examples</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 IFRS16 Calculator. All rights reserved.</p>
+            <p class="disclaimer">Disclaimer: This tool is for educational and informational purposes only and does not
+                constitute professional financial or accounting advice.</p>
+        </div>
+    </footer>
+
+    <script src="script.min.js" defer></script>
+</body>
+
+</html>

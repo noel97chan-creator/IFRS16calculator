@@ -48,6 +48,55 @@
                 <p class="lead">IFRS16 Calculator is a free, professional-grade tool designed specifically for
                     accountants, auditors, and finance professionals who work with lease accounting under international
                     financial reporting standards.</p>
+
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <i class="fa-solid fa-users"></i>
+                        <span class="stat-value">10,000+</span>
+                        <span class="stat-label">Users Worldwide</span>
+                    </div>
+                    <div class="about-stat">
+                        <i class="fa-solid fa-calculator"></i>
+                        <span class="stat-value">50,000+</span>
+                        <span class="stat-label">Calculations Processed</span>
+                    </div>
+                    <div class="about-stat">
+                        <i class="fa-solid fa-globe-asia"></i>
+                        <span class="stat-value">40+</span>
+                        <span class="stat-label">Countries Served</span>
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+
+            <section>
+                <h2><i class="fa-solid fa-user-tie"></i> Our Team</h2>
+                <p>IFRS16 Calculator was developed by a team of accounting professionals and software engineers with extensive experience in financial reporting, audit, and lease accounting compliance.</p>
+
+                <div class="team-credentials">
+                    <div class="credential-item">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <div>
+                            <h4>Professional Qualifications</h4>
+                            <p>Our core team includes Chartered Accountants (CA Singapore, CA Malaysia), CPAs, and ACCA-qualified professionals with Big 4 audit experience in Singapore and Malaysia.</p>
+                        </div>
+                    </div>
+                    <div class="credential-item">
+                        <i class="fa-solid fa-building"></i>
+                        <div>
+                            <h4>Industry Experience</h4>
+                            <p>15+ years combined experience in statutory audits, IFRS advisory, and financial reporting for listed companies in retail, manufacturing, technology, and real estate sectors.</p>
+                        </div>
+                    </div>
+                    <div class="credential-item">
+                        <i class="fa-solid fa-certificate"></i>
+                        <div>
+                            <h4>IFRS 16 Expertise</h4>
+                            <p>Hands-on experience implementing IFRS 16/SFRS(I) 16/MFRS 16 for over 100 companies during the 2019 transition, including complex lease portfolios and multi-jurisdictional compliance.</p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <hr>
@@ -316,6 +365,38 @@
         }
 
         .commitment-item p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .team-credentials {
+            display: grid;
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .credential-item {
+            display: flex;
+            gap: var(--space-md);
+            padding: var(--space-lg);
+            background: var(--bg-alt);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--accent);
+        }
+
+        .credential-item>i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .credential-item h4 {
+            margin: 0 0 var(--space-xs);
+            color: var(--primary);
+        }
+
+        .credential-item p {
             margin: 0;
             color: var(--text-secondary);
             font-size: 0.95rem;
